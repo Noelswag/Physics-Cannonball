@@ -14,15 +14,25 @@ public:
 	bool CleanUp();
 	
 	
-	float x;
-	float y;
-	float vx;
-	float vy;
-	float a;
-	float t;
+	double x;
+	double y;
+	double vx;
+	double vy;
+	double a;
+	double t;
+	int power;
 	int floor;
+	bool start;
+	bool flying;
+	bool end;
+	int mode;
+	double angle;
+	double anglerad;
+	char* modetext;
+	char titletext[800] = { "\0" };
+	int displayangle;
 
-	void euler(float* x, float* v, float* a = nullptr)
+	void euler(double* x, double* v, double* a = nullptr)
 	{
 		*x += *v * t;
 		if (a != nullptr)
@@ -31,7 +41,7 @@ public:
 		}
 	}
 
-	void eulerSympletic(float* x, float* v, float* a)
+	void eulerSympletic(double* x, double* v, double* a)
 	{
 		*v += *a * t;
 		*x += *v * t;
@@ -39,13 +49,12 @@ public:
 
 
 	
-	void velocityVerlet(float* x, float* v, float* a)
+	void velocityVerlet(double* x, double* v, double* a)
 	{
-		*x += (double)*v * t + (double)1 / 2 * *a * pow(t, 2);
+		*x += *v * t + 1 / 2 * *a * pow(t, 2);
 		*v += *a * t;
 	}
 
-	SDL_Texture* ball = nullptr;
 
 private:
 

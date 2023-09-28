@@ -19,6 +19,11 @@ public:
 	ModulePlayer(Application* app, bool start_enabled = true);
 	virtual ~ModulePlayer();
 
+	SDL_Texture* cannon;
+
+	SDL_Texture* ball = nullptr;
+
+
 	bool Start();
 	update_status Update();
 	bool CleanUp();
