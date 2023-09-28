@@ -1,0 +1,25 @@
+﻿  Application.cpp
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  Main.cpp
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  ModuleAudio.cpp
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  ModuleInput.cpp
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  ModulePhysics.cpp
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.cpp(51,7): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.cpp(64,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.cpp(64,28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  ModulePlayer.cpp
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  ModuleRender.cpp
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  ModuleSceneIntro.cpp
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  ModuleTextures.cpp
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  ModuleWindow.cpp
+C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\ModulePhysics.h(44,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  SDL Game.vcxproj -> C:\Users\noelcg\Downloads\Physics II - 2D Project Clean Template\Debug\Physics 2.exe
