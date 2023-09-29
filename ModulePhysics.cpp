@@ -24,10 +24,12 @@ bool ModulePhysics::Start()
 	t = 0.16f;	
 	mode = 1;
 	floor = 214;
-	x = 26;
-	y = floor - 26;
+	x = 999;
+	y = (double)floor-999;
 	power = 35;
 	angle = -45;
+
+	pipe = App->audio->LoadFx("Sound/pipe.wav");
 
 
 
@@ -67,6 +69,7 @@ update_status ModulePhysics::PostUpdate()
 	if (flying)
 	{
 		euler(&x, &vx);
+		
 		if (mode == 1)
 			euler(&y, &vy, &a);
 		if (mode == 2)
@@ -81,6 +84,7 @@ update_status ModulePhysics::PostUpdate()
 		y = floor;
 		flying = false;
 		start = true;
+		App->audio->PlayFx(pipe);
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
@@ -95,9 +99,10 @@ update_status ModulePhysics::PostUpdate()
 			vy = -sin(anglerad) * power;
 
 			x = 13+75*cos(anglerad);
-			y = floor-13-75*sin(anglerad);
+			y = (double)floor-13-75*sin(anglerad);
 
 			//Offsets so that the ball comes out off the cannon. Uncomment the lines below for 0,0
+
 			/*
 			x = 0;
 			y = floor;
@@ -115,10 +120,14 @@ update_status ModulePhysics::PostUpdate()
 	if (mode == 3)
 		modetext = "Velocity Verlet";
 
-	
+	displayx = x;
+	displayy = -(y-floor);
 
 	displayangle = -angle;
-	sprintf_s(titletext, 800, "Angle: %d (left/right) Power: %d (up/down) Mode: %s (1,2,3)", displayangle, power, modetext);
+	
+	
+	
+	sprintf_s(titletext, 200, "X:%03d Y:%03d Angle: %02d (left/right) Power: %02d (up/down) Mode: %s(1,2,3)", displayx, displayy, displayangle, power, modetext);
 
 	App->window->SetTitle(titletext);
 	

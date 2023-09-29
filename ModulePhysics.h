@@ -29,8 +29,12 @@ public:
 	double angle;
 	double anglerad;
 	char* modetext;
-	char titletext[800] = { "\0" };
+	char titletext[200] = { "\0" };
 	int displayangle;
+	int displayx;
+	int displayy;
+	uint pipe = 0;
+
 
 	void euler(double* x, double* v, double* a = nullptr)
 	{
@@ -48,10 +52,10 @@ public:
 	}
 
 
-	
+
 	void velocityVerlet(double* x, double* v, double* a)
 	{
-		*x += *v * t + 1 / 2 * *a * pow(t, 2);
+		*x += (*v * t + (double)1 / 2 * *a * pow(t, 2));
 		*v += *a * t;
 	}
 

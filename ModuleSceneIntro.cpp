@@ -19,7 +19,7 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 	graphics = App->textures->Load("Graphics/Background.png");
 	App->renderer->camera.x = App->renderer->camera.y = 0;
-
+	App->audio->PlayMusic("Sound/US3.ogg");
 	return ret;
 }
 

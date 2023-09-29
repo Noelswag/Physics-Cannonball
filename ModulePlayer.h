@@ -19,7 +19,7 @@ public:
 	ModulePlayer(Application* app, bool start_enabled = true);
 	virtual ~ModulePlayer();
 
-	SDL_Texture* cannon;
+	SDL_Texture* cannon = nullptr;
 
 	SDL_Texture* ball = nullptr;
 
