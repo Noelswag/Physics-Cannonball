@@ -30,11 +30,13 @@ public:
 	double anglerad;
 	char* modetext;
 	char titletext[200] = { "\0" };
-	int displayangle;
+	int displayAngle;
 	int displayx;
 	int displayy;
+	int displayPower;
+	int spin;
 	uint pipe = 0;
-
+	uint scream = 0;
 
 	void euler(double* x, double* v, double* a = nullptr)
 	{
