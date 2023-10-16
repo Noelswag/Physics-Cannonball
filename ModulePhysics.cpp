@@ -13,6 +13,33 @@ ModulePhysics::~ModulePhysics()
 {
 }
 
+
+
+
+
+void ModulePhysics::euler(double* x, double* v, double* a)
+{
+	*x += *v * t;
+	if (a != nullptr)
+	{
+		*v += *a * t;
+	}
+}
+
+void ModulePhysics::eulerSympletic(double* x, double* v, double* a)
+
+{
+	*v += *a * t;
+	*x += *v * t;
+}
+
+void ModulePhysics::velocityVerlet(double* x, double* v, double* a)
+{
+	*x += (*v * t + (double)1 / 2 * *a * pow(t, 2));
+	*v += *a * t;
+}
+
+
 bool ModulePhysics::Start()
 {
 	LOG("Creating Physics 2D environment");
@@ -80,15 +107,23 @@ update_status ModulePhysics::PostUpdate()
 		spin += 10;
 	}
 	
-
+	
+	totalvelocity = sqrt(pow(vx, 2) + pow(vy, 2));
+	
 	if (y >= floor && flying)
 	{
 		y = floor;
-		flying = false;
-		start = true;
+		bounceVertical();
 		App->audio->PlayFx(pipe);
+		if ((x > (double)SCREEN_WIDTH + 25 || totalvelocity<110) && flying)
+		{
+			flying = false;
+			start = true;
+		}
 	}
+	
 
+	
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
 		if (start)
@@ -100,7 +135,7 @@ update_status ModulePhysics::PostUpdate()
 			vx = cos(anglerad)*power;
 			vy = -sin(anglerad) * power;
 
-			x = 13+75*cos(anglerad);
+			x = (App->player->cannonpos+13)+75*cos(anglerad);
 			y = (double)floor-13-75*sin(anglerad);
 			spin = 0;
 			App->audio->PlayFx(scream);
@@ -113,6 +148,9 @@ update_status ModulePhysics::PostUpdate()
 		}
 	}
 
+
+	
+	
 
 	if (mode == 1)
 		modetext = "Euler";

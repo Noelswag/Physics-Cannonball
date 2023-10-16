@@ -23,6 +23,7 @@ public:
 
 	SDL_Texture* ball = nullptr;
 
+	int cannonpos = 0;;
 
 	bool Start();
 	update_status Update();

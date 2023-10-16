@@ -18,6 +18,7 @@ public:
 	double y;
 	double vx;
 	double vy;
+	double totalvelocity;
 	double a;
 	double t;
 	int power;
@@ -38,29 +39,23 @@ public:
 	uint pipe = 0;
 	uint scream = 0;
 
-	void euler(double* x, double* v, double* a = nullptr)
+	void euler(double* x, double* v, double* a = nullptr);
+
+	void eulerSympletic(double* x, double* v, double* a);
+
+
+	void velocityVerlet(double* x, double* v, double* a);
+
+	void bounceVertical()
 	{
-		*x += *v * t;
-		if (a != nullptr)
-		{
-			*v += *a * t;
-		}
+		vy = -vy * 0.75;
+		vx = vx * 0.9;
 	}
 
-	void eulerSympletic(double* x, double* v, double* a)
+	void bounceHorizontal()
 	{
-		*v += *a * t;
-		*x += *v * t;
+		vx = -vx;
 	}
-
-
-
-	void velocityVerlet(double* x, double* v, double* a)
-	{
-		*x += (*v * t + (double)1 / 2 * *a * pow(t, 2));
-		*v += *a * t;
-	}
-
 
 private:
 

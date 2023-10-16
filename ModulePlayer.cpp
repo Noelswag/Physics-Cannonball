@@ -15,7 +15,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player");
 
 	cannon = App->textures->Load("Graphics/Cannon.png");
-	ball = App->textures->Load("Graphics/Ball2.png");
+	ball = App->textures->Load("Graphics/Ball.png");
 	return true;
 }
 
@@ -42,14 +42,25 @@ update_status ModulePlayer::Update()
 		
 	}
 
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && App->physics->angle < 0)
+	{
+
+		cannonpos++;
+
+	}
+	
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && App->physics->angle < 0)
+	{
+
+		cannonpos--;
+
+	}
+
 
 	
+	App->renderer->Blit(ball, App->physics->x, App->physics->y, NULL);
 
-
-	
-	App->renderer->Blit(ball, App->physics->x, App->physics->y, NULL, NULL, App->physics->spin, 19, 13);
-
-	App->renderer->Blit(cannon, 0, App->physics->floor - 26, NULL, NULL, App->physics->angle, 51, 51);
+	App->renderer->Blit(cannon, cannonpos, App->physics->floor - 26, NULL, NULL, App->physics->angle, 51, 51);
 	
 
 
