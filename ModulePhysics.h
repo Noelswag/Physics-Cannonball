@@ -36,8 +36,8 @@ public:
 	int displayy;
 	int displayPower;
 	int spin;
-	uint pipe = 0;
-	uint scream = 0;
+	uint bonk = 0;
+	uint boom = 0;
 
 	void euler(double* x, double* v, double* a = nullptr);
 

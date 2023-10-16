@@ -56,8 +56,8 @@ bool ModulePhysics::Start()
 	power = 350;
 	angle = -45;
 
-	pipe = App->audio->LoadFx("Sound/pipe.wav");
-	scream = App->audio->LoadFx("Sound/Scream.wav");
+	bonk = App->audio->LoadFx("Sound/bonk.wav");
+	boom = App->audio->LoadFx("Sound/boom.wav");
 
 
 	return true;
@@ -114,8 +114,8 @@ update_status ModulePhysics::PostUpdate()
 	{
 		y = floor;
 		bounceVertical();
-		App->audio->PlayFx(pipe);
-		if ((x > (double)SCREEN_WIDTH + 25 || totalvelocity<110) && flying)
+		App->audio->PlayFx(bonk);
+		if ((x > (double)SCREEN_WIDTH || x < -25 || totalvelocity<110) && flying)
 		{
 			flying = false;
 			start = true;
@@ -138,7 +138,7 @@ update_status ModulePhysics::PostUpdate()
 			x = (App->player->cannonpos+13)+75*cos(anglerad);
 			y = (double)floor-13-75*sin(anglerad);
 			spin = 0;
-			App->audio->PlayFx(scream);
+			App->audio->PlayFx(boom);
 			//Offsets so that the ball comes out off the cannon. Uncomment the lines below for 0,0
 
 			/*
@@ -164,7 +164,15 @@ update_status ModulePhysics::PostUpdate()
 	displayx = x;
 	displayy = -(y-floor);
 
-	displayAngle = -angle;
+
+	if (App->player->front)
+	{
+		displayAngle = -angle;
+	}
+	else
+	{
+		displayAngle = (-180 - angle);
+	}
 
 	displayPower = (power / 10 - 10) * 2;
 	

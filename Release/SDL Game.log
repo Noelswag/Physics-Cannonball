@@ -1,21 +1,9 @@
-﻿  Application.cpp
-  log.cpp
-  Main.cpp
-  ModuleAudio.cpp
-  ModuleInput.cpp
-  ModulePhysics.cpp
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(126,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(127,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(129,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  ModulePlayer.cpp
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(50,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(50,40): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  ModuleRender.cpp
-  ModuleSceneIntro.cpp
-  ModuleTextures.cpp
-  ModuleWindow.cpp
+﻿  ModulePlayer.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(95,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(95,40): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 122 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  1 of 124 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SDL Game.vcxproj -> C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\Release\Physics 2.exe

@@ -30,38 +30,77 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT && App->physics->angle > -90)
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
 	{
-		App->physics->angle--;
+
+
+		if (front && App->physics->angle > -90)
+		{
+			App->physics->angle--;
+
+		}
+
+		if (!front && App->physics->angle > -180)
+		{
+			App->physics->angle--;
+
+		}
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT && App->physics->angle < 0)
+	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 	{
-
-		App->physics->angle++;
+		if (front && App->physics->angle < 0)
+		{
+			App->physics->angle++;
+		}
+		
+		if (!front && App->physics->angle < -90)
+		{
+			App->physics->angle++;
+		}
 		
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && App->physics->angle < 0)
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && App->physics->angle <= 0)
 	{
 
+		if (!front)
+		{
+			front = true;
+			App->physics->angle = -180 - App->physics->angle;
+		}
+		if (cannonpos < SCREEN_WIDTH - 101)
+		{
 		cannonpos++;
+		}
 
 	}
 	
-	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && App->physics->angle < 0)
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && App->physics->angle <= 0)
 	{
 
-		cannonpos--;
-
+		if (front)
+		{
+			front = false;
+			App->physics->angle = -180 - App->physics->angle;
+		}
+		if (cannonpos > 0)
+		{
+			cannonpos--;
+		}
 	}
 
 
 	
 	App->renderer->Blit(ball, App->physics->x, App->physics->y, NULL);
-
-	App->renderer->Blit(cannon, cannonpos, App->physics->floor - 26, NULL, NULL, App->physics->angle, 51, 51);
-	
+	if (front)
+	{
+		App->renderer->Blit(cannon, cannonpos, App->physics->floor - 26, NULL, NULL, App->physics->angle, 51, 51);
+	}
+	else
+	{
+		App->renderer->BlitMirror(cannon, cannonpos-51, App->physics->floor - 26, NULL, NULL, (App->physics->angle - 180), 149, 51);
+	}
 
 
 	return UPDATE_CONTINUE;
