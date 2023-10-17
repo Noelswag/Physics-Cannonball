@@ -1,17 +1,1 @@
-﻿  Application.cpp
-  Main.cpp
-  ModuleAudio.cpp
-  ModuleInput.cpp
-  ModulePhysics.cpp
-C:\Users\noelcg\Downloads\Physics II - Box2D - Handout 01\Physics-Cannonball\ModulePhysics.cpp(164,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\noelcg\Downloads\Physics II - Box2D - Handout 01\Physics-Cannonball\ModulePhysics.cpp(165,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\noelcg\Downloads\Physics II - Box2D - Handout 01\Physics-Cannonball\ModulePhysics.cpp(167,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  ModulePlayer.cpp
-C:\Users\noelcg\Downloads\Physics II - Box2D - Handout 01\Physics-Cannonball\ModulePlayer.cpp(61,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\noelcg\Downloads\Physics II - Box2D - Handout 01\Physics-Cannonball\ModulePlayer.cpp(61,40): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  ModuleRender.cpp
-  ModuleSceneIntro.cpp
-  ModuleTextures.cpp
-  ModuleWindow.cpp
-  Generating Code...
-  SDL Game.vcxproj -> C:\Users\noelcg\Downloads\Physics II - Box2D - Handout 01\Physics-Cannonball\Debug\Physics 2.exe
+﻿  SDL Game.vcxproj -> C:\Users\Asus Rog Strix\Documents\GitHub\Physics-Cannonball\Debug\Physics 2.exe

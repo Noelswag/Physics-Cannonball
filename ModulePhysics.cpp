@@ -3,6 +3,8 @@
 #include "ModulePhysics.h"
 #include "math.h"
 
+#define FRICTION 0.1f
+
 ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	debug = true;
@@ -75,6 +77,144 @@ update_status ModulePhysics::PostUpdate()
 	if(App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 		debug = !debug;
 
+	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN) {
+		movOption++;
+		if (movOption > 6) {
+			movOption = 0;
+		}
+	}
+
+	switch (movOption) {
+	case 0:
+		test = movementOptions::MOVX;
+		LOG("--------------------USING MOVX");
+		break;
+	case 1:
+		test = movementOptions::FIXVEL;
+		LOG("--------------------USING FIXVEL");
+		break;
+	case 2:
+		test = movementOptions::FIXACC;
+		LOG("--------------------USING FIXACC");
+		break;
+	case 3:
+		test = movementOptions::MOMENTUM;
+		LOG("--------------------USING MOMENTUM");
+		break;
+	case 4:
+		test = movementOptions::IMPULSE;
+		LOG("--------------------USING IMPULSE");
+		break;
+	case 5:
+		test = movementOptions::ACCELERATION;
+		LOG("--------------------USING ACCELERATION");
+		break;
+	case 6:
+		test = movementOptions::FORCE;
+		LOG("--------------------USING FORCE");
+		break;
+
+	}
+
+	switch (test)
+	{
+	case ModulePhysics::MOVX:
+		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) {
+			testCannon.x += 10;
+			bullet.x = testCannon.x + testCannon.w;
+		}
+
+		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
+			testCannon.x -= 10;
+			bullet.x = testCannon.x + testCannon.w;
+		}
+		break;
+	case ModulePhysics::FIXVEL:
+		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) {
+			testCannon.x += testCannon.vx;
+			bullet.x = testCannon.x + testCannon.w;
+		}
+
+		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
+			testCannon.x -= testCannon.vx;
+			bullet.x = testCannon.x + testCannon.w;
+		}
+		break;
+	case ModulePhysics::FIXACC:
+		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) {
+			testCannon.x += testCannon.vx;
+			testCannon.vx += testCannon.ax;
+			bullet.x = testCannon.x + testCannon.w;
+		}
+
+		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
+			if (testCannon.vx > 0) {
+				testCannon.x -= testCannon.vx;
+			}
+			else {
+				testCannon.x += testCannon.vx;
+			}
+
+			testCannon.vx -= testCannon.ax;
+			bullet.x = testCannon.x + testCannon.w;
+		}
+		break;
+	case ModulePhysics::MOMENTUM:
+		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) {
+			testCannon.x += testCannon.vx;
+			testCannon.vx += testCannon.ax;
+			bullet.x = testCannon.x + testCannon.w;
+		}
+		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
+			if (testCannon.vx > 0) {
+				testCannon.x -= testCannon.vx;
+			}
+			else {
+				testCannon.x += testCannon.vx;
+			}
+			testCannon.vx -= testCannon.ax;
+			bullet.x = testCannon.x + testCannon.w;
+		}
+		// Apply friction
+		testCannon.vx -= (testCannon.vx > 0) ? FRICTION : (testCannon.vx < 0) ? -FRICTION : 0.0f;
+		break;
+	case ModulePhysics::IMPULSE:
+
+		break;
+	case ModulePhysics::ACCELERATION:
+		break;
+	case ModulePhysics::FORCE:
+		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_UP || App->input->GetKey(SDL_SCANCODE_A) == KEY_UP) {
+			testCannon.ax = 0;
+		}
+		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) {
+			testCannon.ax = 1;
+		}
+		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
+			testCannon.ax = -1;
+
+		}
+
+		testCannon.ax = testCannon.ax / testCannon.m;
+		testCannon.vx += testCannon.ax;
+		// Apply friction
+		if (testCannon.vx > 0)
+		{
+			testCannon.vx -= FRICTION;
+			if (testCannon.vx < 0)
+				testCannon.vx = 0;
+		}
+		else if (testCannon.vx < 0)
+		{
+			testCannon.vx += FRICTION;
+			if (testCannon.vx > 0)
+				testCannon.vx = 0;
+		}
+		testCannon.x += testCannon.vx;
+		bullet.x = testCannon.x + testCannon.w;
+		break;
+
+	}
 	if(!debug)
 		return UPDATE_CONTINUE;
 	
