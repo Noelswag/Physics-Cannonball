@@ -115,7 +115,7 @@ update_status ModulePhysics::PostUpdate()
 		y = floor;
 		bounceVertical();
 		App->audio->PlayFx(bonk);
-		if ((x > (double)SCREEN_WIDTH || x < -25 || totalvelocity<110) && flying)
+		if ((x > (double)SCREEN_WIDTH || x < -25 || totalvelocity<125) && flying)
 		{
 			flying = false;
 			start = true;

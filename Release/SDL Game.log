@@ -1,6 +1,8 @@
-﻿  ModulePlayer.cpp
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(95,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(95,40): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+﻿  ModulePhysics.cpp
+C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(164,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(165,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(170,18): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(174,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Generating code
   1 of 124 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
