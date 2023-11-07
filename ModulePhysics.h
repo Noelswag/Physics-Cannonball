@@ -11,8 +11,8 @@ public:
 	bool Start();
 	update_status PreUpdate();
 	update_status PostUpdate();
+	void applyWind();
 	bool CleanUp();
-	
 	
 	double x;
 	double y;
@@ -38,6 +38,13 @@ public:
 	int spin;
 	uint bonk = 0;
 	uint boom = 0;
+
+	float wind;
+	float surface;
+	float density;
+	float Cd;
+	float Drag;
+
 
 	enum movementOptions
 	{
@@ -114,6 +121,8 @@ public:
 
 		int m;
 
+		
+
 		ball() {
 			x = 80;
 			y = 550;
@@ -161,8 +170,11 @@ public:
 
 private:
 
-	ball bullet;
-	player testCannon;
+	
 	int movOption = 0;
 	bool debug;
+
+public:
+	ball bullet;
+	player testCannon;
 };

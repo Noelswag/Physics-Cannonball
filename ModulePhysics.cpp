@@ -16,9 +16,6 @@ ModulePhysics::~ModulePhysics()
 }
 
 
-
-
-
 void ModulePhysics::euler(double* x, double* v, double* a)
 {
 	*x += *v * t;
@@ -57,6 +54,11 @@ bool ModulePhysics::Start()
 	y = (double)floor-999;
 	power = 350;
 	angle = -45;
+	wind = 1.1f;
+	surface = 5.0f;
+	Drag = 0;
+	density = 1.2f;
+	Cd = 0.47f;
 
 	bonk = App->audio->LoadFx("Sound/bonk.wav");
 	boom = App->audio->LoadFx("Sound/boom.wav");
@@ -236,6 +238,7 @@ update_status ModulePhysics::PostUpdate()
 	if (flying)
 	{
 		euler(&x, &vx);
+		applyWind();
 		
 		if (mode == 1)
 			euler(&y, &vy, &a);
@@ -288,10 +291,6 @@ update_status ModulePhysics::PostUpdate()
 		}
 	}
 
-
-	
-	
-
 	if (mode == 1)
 		modetext = "Euler";
 
@@ -316,14 +315,19 @@ update_status ModulePhysics::PostUpdate()
 
 	displayPower = (power / 10 - 10) * 2;
 	
-	
-	
 	sprintf_s(titletext, 200, "X:%03d Y:%03d Angle: %02d (left/right) Power: %02d (up/down) Mode: %s(1,2,3)", displayx, displayy, displayAngle, displayPower, modetext);
 
 	App->window->SetTitle(titletext);
 	
 
 	return UPDATE_CONTINUE;
+}
+
+void ModulePhysics::applyWind()
+{
+	Drag = (density * surface * wind * wind * Cd) / 2;
+	vx -= Drag;
+
 }
 
 
