@@ -140,8 +140,8 @@ update_status ModulePhysics::PostUpdate()
 			vx = cos(anglerad)*power;
 			vy = -sin(anglerad) * power;
 
-			x = (App->player->cannonpos+13)+75*cos(anglerad);
-			y = (double)floor-13-75*sin(anglerad);
+			x = (App->player->cannonposX+13)+75*cos(anglerad);
+			y = (double)App->player->cannonposY-75*sin(anglerad);
 			spin = 0;
 			App->audio->PlayFx(boom);
 			//Offsets so that the ball comes out off the cannon. Uncomment the lines below for 0,0

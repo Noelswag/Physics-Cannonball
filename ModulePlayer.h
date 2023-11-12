@@ -25,7 +25,21 @@ public:
 
 	SDL_Texture* ball = nullptr;
 
-	int cannonpos = 0;
+	int cannonposX = 0;
+	int cannonposY = 274;
+
+	double v = 30;
+	double vx = 3;
+	double vy = 5;
+	float jumpv = 10;
+	float jumpa = 0;
+
+	float ax = 2;
+	int ay = 1;
+
+	float m = 5;
+	float force = 3;
+
 	bool front = true;
 
 	enum movementOptions
@@ -55,7 +69,7 @@ public:
 		GRAVITY
 	};
 	movementOptions test = movementOptions::MOVX;
-	jumpOptions testJump = jumpOptions::JUMPX;
+	jumpOptions testJump = jumpOptions::NO_JUMP;
 	playerStatus testPlayer = playerStatus::GRAVITY;
 
 	class player
@@ -162,6 +176,8 @@ private:
 	int jumpOption = 7;
 	int jumpVal = 0;
 public:
+	bool Euler = true;
+
 	bullet bullet;
 	player testCannon;
 };
