@@ -310,6 +310,47 @@ update_status ModulePlayer::Update()
 		}
 	}
 
+	switch (testJump)
+	{
+	case ModulePlayer::JUMPX:
+		testCannon.y -= 60;
+		testPlayer = playerStatus::GRAVITY;
+		break;
+	case ModulePlayer::JUMPVEL:
+		testCannon.y -= testCannon.jumpv;
+		testPlayer = playerStatus::GRAVITY;
+		break;
+	case ModulePlayer::JUMPACC:
+		testCannon.y -= testCannon.jumpv;
+		testCannon.jumpv -= testCannon.ay;
+		testPlayer = playerStatus::GRAVITY;
+		break;
+	case ModulePlayer::JUMP_MOMENTUM:
+		break;
+	case ModulePlayer::JUMP_IMPULSE:
+		break;
+	case ModulePlayer::JUMP_ACCELERATION:
+		if (testCannon.jumpa < 2) {
+			testCannon.jumpa += 0.1;
+		}
+		testCannon.jumpv += testCannon.jumpa;
+		testCannon.y -= testCannon.jumpv;
+
+		testPlayer = playerStatus::GRAVITY;
+		break;
+	case ModulePlayer::JUMP_FORCE:
+		testCannon.jumpa = testCannon.force / testCannon.m;
+		testCannon.jumpv += testCannon.jumpa;
+		testCannon.y -= testCannon.jumpv;
+		testPlayer = playerStatus::GRAVITY;
+		break;
+	case ModulePlayer::NO_JUMP:
+		if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN) {
+			jumpOption = jumpVal;
+		}
+		break;
+
+	}
 
 	
 	App->renderer->Blit(ball, App->physics->x, App->physics->y, NULL);

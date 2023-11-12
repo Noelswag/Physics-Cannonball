@@ -38,7 +38,25 @@ public:
 		ACCELERATION,
 		FORCE
 	};
+	enum jumpOptions
+	{
+		JUMPX,
+		JUMPVEL,
+		JUMPACC,
+		JUMP_MOMENTUM,
+		JUMP_IMPULSE,
+		JUMP_ACCELERATION,
+		JUMP_FORCE,
+		NO_JUMP
+	};
+	enum playerStatus
+	{
+		STOP_PLAYER,
+		GRAVITY
+	};
 	movementOptions test = movementOptions::MOVX;
+	jumpOptions testJump = jumpOptions::JUMPX;
+	playerStatus testPlayer = playerStatus::GRAVITY;
 
 	class player
 	{
@@ -51,11 +69,14 @@ public:
 		double v;
 		double vx;
 		double vy;
+		float jumpv;
+		float jumpa;
 
 		float ax;
 		int ay;
 
 		int m;
+		float force;
 
 		player() {
 			x = 80;
@@ -138,6 +159,8 @@ public:
 	
 private:
 	int movOption = 0;
+	int jumpOption = 7;
+	int jumpVal = 0;
 public:
 	bullet bullet;
 	player testCannon;
