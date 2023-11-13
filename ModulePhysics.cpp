@@ -38,6 +38,30 @@ void ModulePhysics::velocityVerlet(double* x, double* v, double* a)
 	*v += *a * t;
 }
 
+void ModulePhysics::applyWind(player* entity)
+{
+	entity->Drag = (density * entity->surface * wind * wind * Cd) / 3;
+	entity->vx -= entity->Drag;
+
+}
+
+void ModulePhysics::bounceVertical(player* Entity)
+{
+	Entity->vy = -Entity->vy * 0.75;
+	Entity->vx = Entity->vx * 0.9;
+}
+
+void ModulePhysics::bounceHorizontal(player* entity)
+{
+	entity->vx = -entity->vx;
+}
+
+void ModulePhysics::hydrodynamics(player* entity)
+{
+	entity->Fb = densityW * entity->ay * entity->m;
+	entity->vy -= entity->Fb / 100;
+}
+
 
 bool ModulePhysics::Start()
 {
@@ -46,19 +70,27 @@ bool ModulePhysics::Start()
 	start = true;
 	flying = false;
 	end = false;
-	a = 1000;
+	
 	t = 0.016f;	
 	mode = 1;
 	floor = 300;
-	x = 999;
-	y = (double)floor-999;
+	
 	power = 350;
 	angle = -45;
-	wind = 1.1f;
-	surface = 5.0f;
-	Drag = 0;
-	density = 1.2f;
+
+	wind = 0.8f;
+	density = 0.7f;
+	densityW = 1.0f;
 	Cd = 0.47f;
+
+	bullet.Drag = 0;
+	bullet.ay = 1000;
+	bullet.x = 999;
+	bullet.y = (double)floor - 999;
+	bullet.surface = 10.0f;
+	bullet.m = 10;
+	bullet.DragWater = 0;
+	bullet.Fb = 0;
 
 	bonk = App->audio->LoadFx("Sound/bonk.wav");
 	boom = App->audio->LoadFx("Sound/boom.wav");
@@ -99,34 +131,39 @@ update_status ModulePhysics::PostUpdate()
 
 	if (flying)
 	{
-		euler(&x, &vx);
-		applyWind();
+		euler(&bullet.x, &bullet.vx);
+		applyWind(&bullet);
 		
 		if (mode == 1)
-			euler(&y, &vy, &a);
+			euler(&bullet.y, &bullet.vy, &bullet.ay);
 		if (mode == 2)
-			eulerSympletic(&y, &vy, &a);
+			eulerSympletic(&bullet.y, &bullet.vy, &bullet.ay);
 		if (mode == 3)
-			velocityVerlet(&y, &vy, &a);
+			velocityVerlet(&bullet.y, &bullet.vy, &bullet.ay);
 
 		spin += 10;
 	}
 	
 	
-	totalvelocity = sqrt(pow(vx, 2) + pow(vy, 2));
+	totalvelocity = sqrt(pow(bullet.vx, 2) + pow(bullet.vy, 2));
 	
-	if (y >= floor && flying)
+	if (bullet.y >= floor && flying && bullet.x >= 400)
 	{
-		y = floor;
-		bounceVertical();
+		bullet.y = floor;
+		bounceVertical(&bullet);
 		App->audio->PlayFx(bonk);
-		if ((x > (double)SCREEN_WIDTH || x < -25 || totalvelocity<125) && flying)
+		if ((bullet.x > (double)SCREEN_WIDTH || bullet.x < -25 || totalvelocity<125) && flying)
 		{
 			flying = false;
 			start = true;
 		}
 	}
 	
+	if (bullet.y >= floor && bullet.x < 400 && flying)
+	{
+		hydrodynamics(&bullet);
+		
+	}
 
 	
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
@@ -137,11 +174,11 @@ update_status ModulePhysics::PostUpdate()
 			flying = true;
 			
 			anglerad = -angle * M_PI / 180;
-			vx = cos(anglerad)*power;
-			vy = -sin(anglerad) * power;
+			bullet.vx = cos(anglerad)*power;
+			bullet.vy = -sin(anglerad) * power;
 
-			x = (App->player->cannonposX+13)+75*cos(anglerad);
-			y = (double)App->player->cannonposY-75*sin(anglerad);
+			bullet.x = (Cannon.x+13)+75*cos(anglerad);
+			bullet.y = (double)Cannon.y-75*sin(anglerad);
 			spin = 0;
 			App->audio->PlayFx(boom);
 			//Offsets so that the ball comes out off the cannon. Uncomment the lines below for 0,0
@@ -176,6 +213,8 @@ update_status ModulePhysics::PostUpdate()
 	}
 
 	displayPower = (power / 10 - 10) * 2;
+
+
 	
 	sprintf_s(titletext, 200, "X:%03d Y:%03d Angle: %02d (left/right) Power: %02d (up/down) Mode: %s(1,2,3)", displayx, displayy, displayAngle, displayPower, modetext);
 
@@ -185,12 +224,7 @@ update_status ModulePhysics::PostUpdate()
 	return UPDATE_CONTINUE;
 }
 
-void ModulePhysics::applyWind()
-{
-	Drag = (density * surface * wind * wind * Cd) / 2;
-	vx -= Drag;
 
-}
 
 
 // Called before quitting

@@ -11,7 +11,6 @@ public:
 	bool Start();
 	update_status PreUpdate();
 	update_status PostUpdate();
-	void applyWind();
 	bool CleanUp();
 	
 	double x;
@@ -40,10 +39,9 @@ public:
 	uint boom = 0;
 
 	float wind;
-	float surface;
 	float density;
+	float densityW;
 	float Cd;
-	float Drag;
 
 
 	enum movementOptions
@@ -60,31 +58,29 @@ public:
 	class player
 	{
 	public:
-		int x;
-		int y;
-		int w;
-		int h;
+		double x;
+		double y;
+		double w;
+		double h;
 
 		double v;
 		double vx;
 		double vy;
 
-		float ax;
-		int ay;
+		float jumpv;
+		float jumpa;
+		float force;
+
+		double ax;
+		double ay;
 
 		int m;
+		float surface;
+		float Drag;
+		float DragWater;
+		float Fb;
 
 		player() {
-			x = 80;
-			y = 560;
-			w = 50;
-			h = 80;
-			v = 30;
-			vx = 1;
-			vy = 20;
-			ax = 2;
-			ay = 1;
-			m = 5;
 
 		}
 
@@ -101,54 +97,6 @@ public:
 			m = mass;
 		}
 	};
-	
-	class ball
-	{
-	public:
-		int x;
-		int y;
-
-		int r;
-
-		double angle;
-
-		double v;
-		double vx;
-		double vy;
-
-		int ax;
-		int ay;
-
-		int m;
-
-		
-
-		ball() {
-			x = 80;
-			y = 550;
-			r = 20;
-			angle = 30;
-			v = 25;
-			vx = v * cos(angle * DEGTORAD);
-			vy = -v * sin(angle * DEGTORAD);
-			ax = 0;
-			ay = 1;
-			m = 5;
-		}
-
-		ball(int posX, int posY, int radius, int a, double vel, double velX, double velY, int accX, int accY, int mass) {
-			x = posX;
-			y = posY;
-			r = radius;
-			angle = a;
-			v = vel;
-			vx = velX;
-			vy = velY;
-			ax = accX;
-			ay = accY;
-			m = mass;
-		}
-	};
 
 	void euler(double* x, double* v, double* a = nullptr);
 
@@ -157,16 +105,15 @@ public:
 
 	void velocityVerlet(double* x, double* v, double* a);
 
-	void bounceVertical()
-	{
-		vy = -vy * 0.75;
-		vx = vx * 0.9;
-	}
+	void bounceVertical(player* Entity);
+	
 
-	void bounceHorizontal()
-	{
-		vx = -vx;
-	}
+	void bounceHorizontal(player* entity);
+
+	void applyWind(player* entity);
+
+	void hydrodynamics(player* entity);
+	
 
 private:
 
@@ -175,6 +122,7 @@ private:
 	bool debug;
 
 public:
-	ball bullet;
+	player bullet;
 	player testCannon;
+	player Cannon;
 };

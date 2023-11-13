@@ -15,6 +15,23 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player");
 
+	App->physics->Cannon.x = 0;
+	App->physics->Cannon.y = 274;
+	App->physics->Cannon.v = 30;
+	App->physics->Cannon.vx = 3;
+	App->physics->Cannon.vy = 5;
+	App->physics->Cannon.jumpv = 10;
+	App->physics->Cannon.jumpa = 0;
+	App->physics->Cannon.ax = 2;
+	App->physics->Cannon.ay = 1;
+	App->physics->Cannon.m = 5;
+	App->physics->Cannon.force = 3;
+	App->physics->Cannon.Drag = 0;
+	App->physics->Cannon.surface = 1;
+	App->physics->Cannon.DragWater = 0;
+	App->physics->Cannon.Fb = 0;
+	
+
 	cannon = App->textures->Load("Graphics/Cannon.png");
 	ball = App->textures->Load("Graphics/Ball.png");
 	return true;
@@ -155,9 +172,9 @@ update_status ModulePlayer::Update()
 				front = true;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			if (cannonposX < SCREEN_WIDTH - 101)
+			if (App->physics->Cannon.x < SCREEN_WIDTH - 101)
 			{
-				cannonposX++;
+				App->physics->Cannon.x++;
 			}
 		}
 
@@ -169,9 +186,9 @@ update_status ModulePlayer::Update()
 				front = false;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			if (cannonposX > 0)
+			if (App->physics->Cannon.x > 0)
 			{
-				cannonposX--;
+				App->physics->Cannon.x--;
 			}
 		}
 		break;
@@ -184,26 +201,25 @@ update_status ModulePlayer::Update()
 				front = true;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			if (cannonposX < SCREEN_WIDTH - 101)
+			if (App->physics->Cannon.x < SCREEN_WIDTH - 101)
 			{
-				cannonposX += vx;
+				App->physics->Cannon.x += App->physics->Cannon.vx;
 			}
 		
 
 		}
 
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && App->physics->angle <= 0) {
-			testCannon.x -= testCannon.vx;
-			bullet.x = testCannon.x + testCannon.w;
+			
 
 			if (front)
 			{
 				front = false;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			if (cannonposX > 0)
+			if (App->physics->Cannon.x > 0)
 			{
-				cannonposX -= vx;
+				App->physics->Cannon.x -= App->physics->Cannon.vx;
 			}
 		}
 		break;
@@ -215,22 +231,22 @@ update_status ModulePlayer::Update()
 				front = true;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			if (cannonposX < SCREEN_WIDTH - 101)
+			if (App->physics->Cannon.x < SCREEN_WIDTH - 101)
 			{
-				cannonposX += vx;
-				vx += ax;
+				App->physics->Cannon.x += App->physics->Cannon.vx;
+				App->physics->Cannon.vx += App->physics->Cannon.ax;
 			}
 		}
 
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && App->physics->angle <= 0) {
-			if (vx > 0) {
-				cannonposX -= vx;
+			if (App->physics->Cannon.vx > 0) {
+				App->physics->Cannon.x -= App->physics->Cannon.vx;
 			}
 			else {
-				cannonposX += vx;
+				App->physics->Cannon.x += App->physics->Cannon.vx;
 			}
 
-			vx -= ax;
+			App->physics->Cannon.vx -= App->physics->Cannon.ax;
 			
 
 			if (front)
@@ -238,16 +254,16 @@ update_status ModulePlayer::Update()
 				front = false;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			if (cannonposX > 0)
+			if (App->physics->Cannon.x > 0)
 			{
-				if (vx > 0) {
-				cannonposX -= vx;
+				if (App->physics->Cannon.vx > 0) {
+					App->physics->Cannon.x -= App->physics->Cannon.vx;
 			}
 			else {
-				cannonposX += vx;
+					App->physics->Cannon.x += App->physics->Cannon.vx;
 			}
 
-			vx -= ax;
+				App->physics->Cannon.vx -= App->physics->Cannon.ax;
 			}
 		}
 		break;
@@ -259,22 +275,22 @@ update_status ModulePlayer::Update()
 				front = true;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			if (cannonposX < SCREEN_WIDTH - 101)
+			if (App->physics->Cannon.x < SCREEN_WIDTH - 101)
 			{
-				cannonposX += vx;
-				vx += ax;
+				App->physics->Cannon.x += App->physics->Cannon.vx;
+				App->physics->Cannon.vx += App->physics->Cannon.ax;
 			}
 		}
 
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && App->physics->angle <= 0) {
-			if (vx > 0) {
-				cannonposX -= vx;
+			if (App->physics->Cannon.vx > 0) {
+				App->physics->Cannon.x -= App->physics->Cannon.vx;
 			}
 			else {
-				cannonposX += vx;
+				App->physics->Cannon.x += App->physics->Cannon.vx;
 			}
 
-			vx -= ax;
+			App->physics->Cannon.vx -= App->physics->Cannon.ax;
 
 
 			if (front)
@@ -282,20 +298,19 @@ update_status ModulePlayer::Update()
 				front = false;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			if (cannonposX > 0)
+			if (App->physics->Cannon.x > 0)
 			{
-				if (vx > 0) {
-					cannonposX -= vx;
+				if (App->physics->Cannon.vx > 0) {
+					App->physics->Cannon.x -= App->physics->Cannon.vx;
 				}
 				else {
-					cannonposX += vx;
+					App->physics->Cannon.x += App->physics->Cannon.vx;
 				}
 
-				vx -= ax;
+				App->physics->Cannon.vx -= App->physics->Cannon.ax;
 			}
 		}
-		// Apply friction
-		testCannon.vx -= (testCannon.vx > 0) ? FRICTION : (testCannon.vx < 0) ? -FRICTION : 0.0f;
+		
 		break;
 	case ModulePhysics::IMPULSE:
 
@@ -304,7 +319,7 @@ update_status ModulePlayer::Update()
 		break;
 	case ModulePhysics::FORCE:
 		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_UP || App->input->GetKey(SDL_SCANCODE_A) == KEY_UP) {
-			ax = 0;
+			App->physics->Cannon.ax = 0;
 		}
 		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && App->physics->angle <= 0) {
 			if (!front)
@@ -312,7 +327,7 @@ update_status ModulePlayer::Update()
 				front = true;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			ax = 1;
+			App->physics->Cannon.ax = 1;
 		}
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && App->physics->angle <= 0) {
 			if (front)
@@ -320,26 +335,28 @@ update_status ModulePlayer::Update()
 				front = false;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			ax = -1;
+			App->physics->Cannon.ax = -1;
 
 		}
 
-		ax = ax / m;
-		vx += ax;
-		// Apply friction
-		if (vx > 0)
-		{
-			vx -= FRICTION;
-			if (vx < 0)
-				vx = 0;
-		}
-		else if (vx < 0)
-		{
-			vx += FRICTION;
-			if (vx > 0)
-				vx = 0;
-		}
-		cannonposX += vx;
+			App->physics->Cannon.ax = App->physics->Cannon.ax / App->physics->Cannon.m;
+			App->physics->Cannon.vx += App->physics->Cannon.ax;
+
+			// Apply friction
+			if (App->physics->Cannon.vx > 0)
+			{
+				App->physics->Cannon.vx -= FRICTION;
+				if (App->physics->Cannon.vx < 0)
+					App->physics->Cannon.vx = 0;
+			}
+			else if (App->physics->Cannon.vx < 0)
+			{
+				App->physics->Cannon.vx += FRICTION;
+				if (App->physics->Cannon.vx > 0)
+					App->physics->Cannon.vx = 0;
+			}
+			App->physics->Cannon.x += App->physics->Cannon.vx;
+		
 		
 		break;
 
@@ -351,16 +368,16 @@ update_status ModulePlayer::Update()
 	switch (testJump)
 	{
 	case ModulePlayer::JUMPX:
-		cannonposY -= 20;
+		App->physics->Cannon.y -= 20;
 		testPlayer = playerStatus::GRAVITY;
 		break;
 	case ModulePlayer::JUMPVEL:
-		cannonposY -= jumpv;
+		App->physics->Cannon.y -= App->physics->Cannon.jumpv;
 		testPlayer = playerStatus::GRAVITY;
 		break;
 	case ModulePlayer::JUMPACC:
-		cannonposY -= jumpv;
-		jumpv -= ay;
+		App->physics->Cannon.y -= App->physics->Cannon.jumpv;
+		App->physics->Cannon.jumpv -= App->physics->Cannon.ay;
 		testPlayer = playerStatus::GRAVITY;
 		break;
 	case ModulePlayer::JUMP_MOMENTUM:
@@ -368,18 +385,18 @@ update_status ModulePlayer::Update()
 	case ModulePlayer::JUMP_IMPULSE:
 		break;
 	case ModulePlayer::JUMP_ACCELERATION:
-		if (jumpa < 2) {
-			jumpa += 0.1;
+		if (App->physics->Cannon.jumpa < 2) {
+			App->physics->Cannon.jumpa += 0.1;
 		}
-		jumpv += jumpa;
-		cannonposY -= jumpv;
+		App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
+		App->physics->Cannon.y -= App->physics->Cannon.jumpv;
 
 		testPlayer = playerStatus::GRAVITY;
 		break;
 	case ModulePlayer::JUMP_FORCE:
-		jumpa = force / m;
-		jumpv += jumpa;
-		cannonposY -= jumpv;
+		App->physics->Cannon.jumpa = App->physics->Cannon.force / App->physics->Cannon.m;
+		App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
+		App->physics->Cannon.y -= App->physics->Cannon.jumpv;
 		testPlayer = playerStatus::GRAVITY;
 		break;
 	case ModulePlayer::NO_JUMP:
@@ -393,20 +410,21 @@ update_status ModulePlayer::Update()
 	switch (testPlayer)
 	{
 	case ModulePlayer::STOP_PLAYER:
-		vy = 5;
-		jumpv = 20;
+		App->physics->Cannon.vy = 5;
+		App->physics->Cannon.jumpv = 20;
 		break;
 	case ModulePlayer::GRAVITY:
-		vy += ay;
+		App->physics->applyWind(&App->physics->Cannon);
+		App->physics->Cannon.vy += App->physics->Cannon.ay;
 		
 		if (Euler) {
-			cannonposY += vy;
+			App->physics->Cannon.y += App->physics->Cannon.vy;
 		}
 		else {
-			cannonposY += vy + 1 / 2 * ay;
+			App->physics->Cannon.y += App->physics->Cannon.vy + 1 / 2 * App->physics->Cannon.ay;
 		}
 
-		if (cannonposY >= 275) {
+		if (App->physics->Cannon.y >= 275) {
 			jumpOption = 7;
 			testPlayer = playerStatus::STOP_PLAYER;
 			testJump = jumpOptions::NO_JUMP;
@@ -415,14 +433,16 @@ update_status ModulePlayer::Update()
 	}
 
 	
-	App->renderer->Blit(ball, App->physics->x, App->physics->y, NULL);
+
+	
+	App->renderer->Blit(ball, App->physics->bullet.x, App->physics->bullet.y, NULL);
 	if (front)
 	{
-		App->renderer->Blit(cannon, cannonposX, cannonposY, NULL, NULL, App->physics->angle, 51, 51);
+		App->renderer->Blit(cannon, App->physics->Cannon.x, App->physics->Cannon.y, NULL, NULL, App->physics->angle, 51, 51);
 	}
 	else
 	{
-		App->renderer->BlitMirror(cannon, cannonposX-51, cannonposY, NULL, NULL, (App->physics->angle - 180), 149, 51);
+		App->renderer->BlitMirror(cannon, App->physics->Cannon.x-51, App->physics->Cannon.y, NULL, NULL, (App->physics->angle - 180), 149, 51);
 	}
 
 
