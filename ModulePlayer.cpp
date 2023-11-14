@@ -26,10 +26,7 @@ bool ModulePlayer::Start()
 	App->physics->Cannon.ay = 1;
 	App->physics->Cannon.m = 5;
 	App->physics->Cannon.force = 3;
-	App->physics->Cannon.Drag = 0;
 	App->physics->Cannon.surface = 1;
-	App->physics->Cannon.DragWater = 0;
-	App->physics->Cannon.Fb = 0;
 	
 
 	cannon = App->textures->Load("Graphics/Cannon.png");

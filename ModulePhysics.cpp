@@ -16,33 +16,44 @@ ModulePhysics::~ModulePhysics()
 }
 
 
-void ModulePhysics::euler(double* x, double* v, double* a)
+void ModulePhysics::euler(player* entity)
 {
-	*x += *v * t;
-	if (a != nullptr)
-	{
-		*v += *a * t;
-	}
+	entity->ax = entity->Fx / entity->m;
+	entity->ay = entity->Fy / entity->m;
+	
+	entity->x += PIXEL_TO_METERS(entity->vx);
+	entity->vx += entity->ax;
+
+	entity->y += PIXEL_TO_METERS(entity->vy);
+	entity->vy += entity->ay;
+	
 }
 
-void ModulePhysics::eulerSympletic(double* x, double* v, double* a)
+void ModulePhysics::eulerSympletic(player* entity)
 
 {
-	*v += *a * t;
-	*x += *v * t;
+	entity->ax = entity->Fx / entity->m;
+	entity->ay = entity->Fy / entity->m;
+
+	entity->vx += entity->ax * t;
+	entity->x += entity->vx * t;
+	
+	entity->vy += entity->ay * t;
+	entity->y += entity->vy * t;
+	
 }
 
-void ModulePhysics::velocityVerlet(double* x, double* v, double* a)
+void ModulePhysics::velocityVerlet(player* entity)
 {
-	*x += (*v * t + (double)1 / 2 * *a * pow(t, 2));
-	*v += *a * t;
-}
 
-void ModulePhysics::applyWind(player* entity)
-{
-	entity->Drag = (density * entity->surface * wind * wind * Cd) / 3;
-	entity->vx -= entity->Drag;
+	entity->ax = entity->Fx / entity->m;
+	entity->ay = entity->Fy / entity->m;
 
+	entity->x += (entity->vx * t + (double)1 / 2 * entity->ax * pow(t, 2));
+	entity->vx += entity->ax * t;
+
+	entity->y += (entity->vy * t + (double)1 / 2 * entity->ay * pow(t, 2));
+	entity->vy += entity->ay * t;
 }
 
 void ModulePhysics::bounceVertical(player* Entity)
@@ -56,11 +67,36 @@ void ModulePhysics::bounceHorizontal(player* entity)
 	entity->vx = -entity->vx;
 }
 
-void ModulePhysics::hydrodynamics(player* entity)
+
+
+void ModulePhysics::applyHydrodynamics(player* entity)
 {
-	entity->Fb = densityW * entity->ay * entity->m;
-	entity->vy -= entity->Fb / 100;
+	entity->Fy -= densityW * GRAVITY_ * entity->volumen;
+	entity->Fy -= dragW * entity->vy;
 }
+
+void ModulePhysics::applyWind(player* entity)
+{
+	entity->Fx += -(density * entity->surface * windx * windx * entity->Cd) / 2;
+
+}
+
+void ModulePhysics::applyGravity(player* entity)
+{
+	entity->Fy = entity->m * GRAVITY_;
+}
+
+void ModulePhysics::applyAerodynamics(player* entity)
+{
+	entity->Fy += (density * entity->surface * windy * windy * entity->Cd) / 2;
+}
+
+void ModulePhysics::resetForces(player* entity)
+{
+	applyGravity(entity);
+	
+}
+
 
 
 bool ModulePhysics::Start()
@@ -69,6 +105,7 @@ bool ModulePhysics::Start()
 	
 	start = true;
 	flying = false;
+	inWater = false;
 	end = false;
 	
 	t = 0.016f;	
@@ -78,19 +115,21 @@ bool ModulePhysics::Start()
 	power = 350;
 	angle = -45;
 
-	wind = 0.8f;
+	windx = 0.0f;
+	windy = -1.0f;
 	density = 0.7f;
 	densityW = 1.0f;
-	Cd = 0.47f;
 
-	bullet.Drag = 0;
+	bullet.Cd = 0.47f;
 	bullet.ay = 1000;
 	bullet.x = 999;
 	bullet.y = (double)floor - 999;
 	bullet.surface = 10.0f;
-	bullet.m = 10;
-	bullet.DragWater = 0;
-	bullet.Fb = 0;
+	bullet.volumen = 100.0f;
+	bullet.m = 50;
+
+	applyGravity(&bullet);
+	applyAerodynamics(&bullet);
 
 	bonk = App->audio->LoadFx("Sound/bonk.wav");
 	boom = App->audio->LoadFx("Sound/boom.wav");
@@ -129,25 +168,10 @@ update_status ModulePhysics::PostUpdate()
 		if (power > 100)
 			power-=10;
 
-	if (flying)
-	{
-		euler(&bullet.x, &bullet.vx);
-		applyWind(&bullet);
-		
-		if (mode == 1)
-			euler(&bullet.y, &bullet.vy, &bullet.ay);
-		if (mode == 2)
-			eulerSympletic(&bullet.y, &bullet.vy, &bullet.ay);
-		if (mode == 3)
-			velocityVerlet(&bullet.y, &bullet.vy, &bullet.ay);
-
-		spin += 10;
-	}
-	
 	
 	totalvelocity = sqrt(pow(bullet.vx, 2) + pow(bullet.vy, 2));
 	
-	if (bullet.y >= floor && flying && bullet.x >= 400)
+	if (bullet.y >= floor && flying  && bullet.x >= 400)
 	{
 		bullet.y = floor;
 		bounceVertical(&bullet);
@@ -161,7 +185,8 @@ update_status ModulePhysics::PostUpdate()
 	
 	if (bullet.y >= floor && bullet.x < 400 && flying)
 	{
-		hydrodynamics(&bullet);
+		applyHydrodynamics(&bullet);
+		//dragW *= 0.95f;
 		
 	}
 
@@ -188,6 +213,21 @@ update_status ModulePhysics::PostUpdate()
 			y = floor;
 			*/
 		}
+	}
+
+	if (flying)
+	{
+
+		applyWind(&bullet);
+		
+		if (mode == 1)
+			euler(&bullet);
+		if (mode == 2)
+			eulerSympletic(&bullet);
+		if (mode == 3)
+			velocityVerlet(&bullet);
+
+		spin += 10;
 	}
 
 	if (mode == 1)
@@ -219,7 +259,9 @@ update_status ModulePhysics::PostUpdate()
 	sprintf_s(titletext, 200, "X:%03d Y:%03d Angle: %02d (left/right) Power: %02d (up/down) Mode: %s(1,2,3)", displayx, displayy, displayAngle, displayPower, modetext);
 
 	App->window->SetTitle(titletext);
+
 	
+	resetForces(&bullet);
 
 	return UPDATE_CONTINUE;
 }

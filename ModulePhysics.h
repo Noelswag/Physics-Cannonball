@@ -2,6 +2,14 @@
 #include "Module.h"
 #include "Globals.h"
 
+#define GRAVITY_ 10
+
+#define PIXELS_PER_METER 50.0f // if touched change METER_PER_PIXEL too
+#define METER_PER_PIXEL 0.02f // this is 1 / PIXELS_PER_METER !
+
+#define METERS_TO_PIXELS(m) ((int) floor(PIXELS_PER_METER * m))
+#define PIXEL_TO_METERS(p)  ((float) METER_PER_PIXEL * p)
+
 class ModulePhysics : public Module
 {
 public:
@@ -24,6 +32,7 @@ public:
 	int floor;
 	bool start;
 	bool flying;
+	bool inWater;
 	bool end;
 	int mode;
 	double angle;
@@ -38,11 +47,12 @@ public:
 	uint bonk = 0;
 	uint boom = 0;
 
-	float wind;
+	float windx;
+	float windy;
 	float density;
 	float densityW;
-	float Cd;
-
+	
+	float dragW = 1.0f;
 
 	enum movementOptions
 	{
@@ -67,18 +77,20 @@ public:
 		double vx;
 		double vy;
 
+		double ax;
+		double ay;
+
 		float jumpv;
 		float jumpa;
 		float force;
 
-		double ax;
-		double ay;
+		float Fx = 0;
+		float Fy = 0;
 
 		int m;
 		float surface;
-		float Drag;
-		float DragWater;
-		float Fb;
+		float volumen;
+		float Cd;
 
 		player() {
 
@@ -98,21 +110,26 @@ public:
 		}
 	};
 
-	void euler(double* x, double* v, double* a = nullptr);
+	void euler(player* entity);
 
-	void eulerSympletic(double* x, double* v, double* a);
+	void eulerSympletic(player* entity);
 
 
-	void velocityVerlet(double* x, double* v, double* a);
+	void velocityVerlet(player* entity);
 
 	void bounceVertical(player* Entity);
 	
-
 	void bounceHorizontal(player* entity);
+
+	void applyGravity(player* entity);
 
 	void applyWind(player* entity);
 
-	void hydrodynamics(player* entity);
+	void applyHydrodynamics(player* entity);
+
+	void applyAerodynamics(player* entity);
+
+	void resetForces(player* entity);
 	
 
 private:
