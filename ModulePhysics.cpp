@@ -27,6 +27,7 @@ void ModulePhysics::euler(player* entity)
 	entity->y += PIXEL_TO_METERS(entity->vy);
 	entity->vy += entity->ay;
 	
+	
 }
 
 void ModulePhysics::eulerSympletic(player* entity)
@@ -121,7 +122,6 @@ bool ModulePhysics::Start()
 	densityW = 1.0f;
 
 	bullet.Cd = 0.47f;
-	bullet.ay = 1000;
 	bullet.x = 999;
 	bullet.y = (double)floor - 999;
 	bullet.surface = 10.0f;
@@ -186,7 +186,7 @@ update_status ModulePhysics::PostUpdate()
 	if (bullet.y >= floor && bullet.x < 400 && flying)
 	{
 		applyHydrodynamics(&bullet);
-		//dragW *= 0.95f;
+		
 		
 	}
 

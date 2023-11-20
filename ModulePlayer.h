@@ -56,7 +56,7 @@ public:
 	};
 	movementOptions test = movementOptions::MOVX;
 	jumpOptions testJump = jumpOptions::NO_JUMP;
-	playerStatus testPlayer = playerStatus::GRAVITY;
+	playerStatus testPlayer = playerStatus::STOP_PLAYER;
 	
 
 public:

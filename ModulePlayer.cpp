@@ -17,16 +17,16 @@ bool ModulePlayer::Start()
 
 	App->physics->Cannon.x = 0;
 	App->physics->Cannon.y = 274;
-	App->physics->Cannon.v = 30;
-	App->physics->Cannon.vx = 3;
-	App->physics->Cannon.vy = 5;
 	App->physics->Cannon.jumpv = 10;
 	App->physics->Cannon.jumpa = 0;
 	App->physics->Cannon.ax = 2;
-	App->physics->Cannon.ay = 1;
-	App->physics->Cannon.m = 5;
-	App->physics->Cannon.force = 3;
-	App->physics->Cannon.surface = 1;
+	App->physics->Cannon.m = 100;
+	App->physics->Cannon.force = -50;
+	App->physics->Cannon.surface = 20;
+	App->physics->Cannon.volumen = 200;
+
+	App->physics->applyGravity(&App->physics->Cannon);
+	App->physics->applyAerodynamics(&App->physics->Cannon);
 	
 
 	cannon = App->textures->Load("Graphics/Cannon.png");
@@ -83,10 +83,10 @@ update_status ModulePlayer::Update()
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN) {
-		jumpVal++;
+		jumpOption++;
 
-		if (jumpVal > 7) {
-			jumpVal = 0;
+		if (jumpOption > 7) {
+			jumpOption = 0;
 		}
 	}
 	LOG("-----------------------JUMPVAL IS %d", jumpVal);
@@ -316,7 +316,7 @@ update_status ModulePlayer::Update()
 		break;
 	case ModulePhysics::FORCE:
 		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_UP || App->input->GetKey(SDL_SCANCODE_A) == KEY_UP) {
-			App->physics->Cannon.ax = 0;
+			App->physics->Cannon.Fx = 0;
 		}
 		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && App->physics->angle <= 0) {
 			if (!front)
@@ -324,7 +324,14 @@ update_status ModulePlayer::Update()
 				front = true;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			App->physics->Cannon.ax = 1;
+
+			if (testPlayer == playerStatus::STOP_PLAYER) {
+				App->physics->Cannon.Fx = 30;
+			}
+			else {
+				App->physics->Cannon.Fx = 15;
+			}
+			
 		}
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && App->physics->angle <= 0) {
 			if (front)
@@ -332,11 +339,17 @@ update_status ModulePlayer::Update()
 				front = false;
 				App->physics->angle = -180 - App->physics->angle;
 			}
-			App->physics->Cannon.ax = -1;
+			
+			if (testPlayer == playerStatus::STOP_PLAYER) {
+				App->physics->Cannon.Fx = -30;
+			}
+			else {
+				App->physics->Cannon.Fx = -15;
+			}
 
 		}
 
-			App->physics->Cannon.ax = App->physics->Cannon.ax / App->physics->Cannon.m;
+			App->physics->Cannon.ax = App->physics->Cannon.Fx / App->physics->Cannon.m;
 			App->physics->Cannon.vx += App->physics->Cannon.ax;
 
 			// Apply friction
@@ -360,75 +373,80 @@ update_status ModulePlayer::Update()
 	}
 	
 	
-	
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN && testPlayer == playerStatus::STOP_PLAYER) {
+		switch (testJump)
+		{
+		case ModulePlayer::JUMPX:
+			App->physics->Cannon.y -= 100;
+			testPlayer = playerStatus::GRAVITY;
+			break;
+		case ModulePlayer::JUMPVEL:
+			App->physics->Cannon.y -= App->physics->Cannon.jumpv;
+			testPlayer = playerStatus::GRAVITY;
+			break;
+		case ModulePlayer::JUMPACC:
+			App->physics->Cannon.y -= App->physics->Cannon.jumpv;
+			App->physics->Cannon.jumpv -= App->physics->Cannon.ay;
+			testPlayer = playerStatus::GRAVITY;
+			break;
+		case ModulePlayer::JUMP_MOMENTUM:
+			break;
+		case ModulePlayer::JUMP_IMPULSE:
+			break;
+		case ModulePlayer::JUMP_ACCELERATION:
+			if (App->physics->Cannon.jumpa < 2) {
+				App->physics->Cannon.jumpa += 0.1;
+			}
+			App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
+			App->physics->Cannon.y -= App->physics->Cannon.jumpv;
 
-	switch (testJump)
-	{
-	case ModulePlayer::JUMPX:
-		App->physics->Cannon.y -= 20;
-		testPlayer = playerStatus::GRAVITY;
-		break;
-	case ModulePlayer::JUMPVEL:
-		App->physics->Cannon.y -= App->physics->Cannon.jumpv;
-		testPlayer = playerStatus::GRAVITY;
-		break;
-	case ModulePlayer::JUMPACC:
-		App->physics->Cannon.y -= App->physics->Cannon.jumpv;
-		App->physics->Cannon.jumpv -= App->physics->Cannon.ay;
-		testPlayer = playerStatus::GRAVITY;
-		break;
-	case ModulePlayer::JUMP_MOMENTUM:
-		break;
-	case ModulePlayer::JUMP_IMPULSE:
-		break;
-	case ModulePlayer::JUMP_ACCELERATION:
-		if (App->physics->Cannon.jumpa < 2) {
-			App->physics->Cannon.jumpa += 0.1;
+			testPlayer = playerStatus::GRAVITY;
+			break;
+		case ModulePlayer::JUMP_FORCE:
+			App->physics->Cannon.vy = -300;
+			//App->physics->Cannon.jumpa = App->physics->Cannon.force / App->physics->Cannon.m;
+			//App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
+			//App->physics->Cannon.y -= App->physics->Cannon.jumpv;
+			testPlayer = playerStatus::GRAVITY;
+			break;
+		case ModulePlayer::NO_JUMP:
+			if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN) {
+				jumpOption = jumpVal;
+			}
+			break;
+
 		}
-		App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
-		App->physics->Cannon.y -= App->physics->Cannon.jumpv;
-
-		testPlayer = playerStatus::GRAVITY;
-		break;
-	case ModulePlayer::JUMP_FORCE:
-		App->physics->Cannon.jumpa = App->physics->Cannon.force / App->physics->Cannon.m;
-		App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
-		App->physics->Cannon.y -= App->physics->Cannon.jumpv;
-		testPlayer = playerStatus::GRAVITY;
-		break;
-	case ModulePlayer::NO_JUMP:
-		if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN) {
-			jumpOption = jumpVal;
-		}
-		break;
-
 	}
+
+	
 
 	switch (testPlayer)
 	{
 	case ModulePlayer::STOP_PLAYER:
-		App->physics->Cannon.vy = 5;
-		App->physics->Cannon.jumpv = 20;
+		//App->physics->Cannon.vy = 5;
+		App->physics->Cannon.jumpv = 10;
+		App->physics->Cannon.jumpa = 0;
 		break;
 	case ModulePlayer::GRAVITY:
 		App->physics->applyWind(&App->physics->Cannon);
-		App->physics->Cannon.vy += App->physics->Cannon.ay;
 		
-		if (Euler) {
-			App->physics->Cannon.y += App->physics->Cannon.vy;
-		}
-		else {
-			App->physics->Cannon.y += App->physics->Cannon.vy + 1 / 2 * App->physics->Cannon.ay;
-		}
+		if (App->physics->mode == 1)
+			App->physics->euler(&App->physics->Cannon);
+		if (App->physics->mode == 2)
+			App->physics->eulerSympletic(&App->physics->Cannon);
+		if (App->physics->mode == 3)
+			App->physics->velocityVerlet(&App->physics->Cannon);
 
 		if (App->physics->Cannon.y >= 275) {
-			jumpOption = 7;
+			//jumpOption = 7;
 			testPlayer = playerStatus::STOP_PLAYER;
 			testJump = jumpOptions::NO_JUMP;
 		}
+		
 		break;
 	}
 
+	App->physics->resetForces(&App->physics->Cannon);
 	
 
 	
