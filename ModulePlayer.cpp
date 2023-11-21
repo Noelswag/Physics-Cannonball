@@ -83,10 +83,10 @@ update_status ModulePlayer::Update()
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN) {
-		jumpOption++;
+		jumpVal++;
 
-		if (jumpOption > 7) {
-			jumpOption = 0;
+		if (jumpVal > 7) {
+			jumpVal = 0;
 		}
 	}
 	LOG("-----------------------JUMPVAL IS %d", jumpVal);
@@ -373,11 +373,11 @@ update_status ModulePlayer::Update()
 	}
 	
 	
-	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN && testPlayer == playerStatus::STOP_PLAYER) {
+
 		switch (testJump)
 		{
 		case ModulePlayer::JUMPX:
-			App->physics->Cannon.y -= 100;
+			App->physics->Cannon.y -= 5;
 			testPlayer = playerStatus::GRAVITY;
 			break;
 		case ModulePlayer::JUMPVEL:
@@ -386,7 +386,7 @@ update_status ModulePlayer::Update()
 			break;
 		case ModulePlayer::JUMPACC:
 			App->physics->Cannon.y -= App->physics->Cannon.jumpv;
-			App->physics->Cannon.jumpv -= App->physics->Cannon.ay;
+			App->physics->Cannon.jumpv -= GRAVITY_;
 			testPlayer = playerStatus::GRAVITY;
 			break;
 		case ModulePlayer::JUMP_MOMENTUM:
@@ -403,7 +403,9 @@ update_status ModulePlayer::Update()
 			testPlayer = playerStatus::GRAVITY;
 			break;
 		case ModulePlayer::JUMP_FORCE:
-			App->physics->Cannon.vy = -300;
+			if (testPlayer == playerStatus::STOP_PLAYER) {
+				App->physics->Cannon.vy = -300;
+			}
 			//App->physics->Cannon.jumpa = App->physics->Cannon.force / App->physics->Cannon.m;
 			//App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
 			//App->physics->Cannon.y -= App->physics->Cannon.jumpv;
@@ -416,7 +418,7 @@ update_status ModulePlayer::Update()
 			break;
 
 		}
-	}
+
 
 	
 
@@ -424,8 +426,9 @@ update_status ModulePlayer::Update()
 	{
 	case ModulePlayer::STOP_PLAYER:
 		//App->physics->Cannon.vy = 5;
-		App->physics->Cannon.jumpv = 10;
+		App->physics->Cannon.jumpv = 30;
 		App->physics->Cannon.jumpa = 0;
+		App->physics->Cannon.vy = 0;
 		break;
 	case ModulePlayer::GRAVITY:
 		App->physics->applyWind(&App->physics->Cannon);
@@ -437,10 +440,11 @@ update_status ModulePlayer::Update()
 		if (App->physics->mode == 3)
 			App->physics->velocityVerlet(&App->physics->Cannon);
 
-		if (App->physics->Cannon.y >= 275) {
-			//jumpOption = 7;
+		if (App->physics->Cannon.y >= 274) {
+			jumpOption = 7;
 			testPlayer = playerStatus::STOP_PLAYER;
 			testJump = jumpOptions::NO_JUMP;
+			
 		}
 		
 		break;

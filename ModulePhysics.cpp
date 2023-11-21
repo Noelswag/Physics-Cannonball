@@ -37,10 +37,10 @@ void ModulePhysics::eulerSympletic(player* entity)
 	entity->ay = entity->Fy / entity->m;
 
 	entity->vx += entity->ax * t;
-	entity->x += entity->vx * t;
+	entity->x += PIXEL_TO_METERS(entity->vx);
 	
 	entity->vy += entity->ay * t;
-	entity->y += entity->vy * t;
+	entity->y += PIXEL_TO_METERS(entity->vy);
 	
 }
 
@@ -50,10 +50,10 @@ void ModulePhysics::velocityVerlet(player* entity)
 	entity->ax = entity->Fx / entity->m;
 	entity->ay = entity->Fy / entity->m;
 
-	entity->x += (entity->vx * t + (double)1 / 2 * entity->ax * pow(t, 2));
+	entity->x += PIXEL_TO_METERS(entity->vx + (double)1 / 2 * entity->ax);
 	entity->vx += entity->ax * t;
 
-	entity->y += (entity->vy * t + (double)1 / 2 * entity->ay * pow(t, 2));
+	entity->y += PIXEL_TO_METERS(entity->vy + (double)1 / 2 * entity->ay);
 	entity->vy += entity->ay * t;
 }
 
