@@ -111,7 +111,7 @@ bool ModulePhysics::Start()
 	
 	t = 0.016f;	
 	mode = 1;
-	floor = 300;
+	floor = 312;
 	
 	power = 350;
 	angle = -45;
@@ -206,6 +206,8 @@ update_status ModulePhysics::PostUpdate()
 			App->audio->PlayFx(boom);
 			//Offsets so that the ball comes out off the cannon. Uncomment the lines below for 0,0
 
+			bullet.x = Cannon.x + 13;
+			bullet.y = Cannon.y + 13;
 			/*
 			x = 0;
 			y = floor;

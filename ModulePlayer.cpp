@@ -29,8 +29,8 @@ bool ModulePlayer::Start()
 	App->physics->applyAerodynamics(&App->physics->Cannon);
 	
 
-	cannon = App->textures->Load("Graphics/Cannon.png");
-	ball = App->textures->Load("Graphics/Ball.png");
+	cannon = App->textures->Load("Graphics/Cannon2.png");
+	ball = App->textures->Load("Graphics/Ball2.png");
 	return true;
 }
 
@@ -469,11 +469,11 @@ update_status ModulePlayer::Update()
 	App->renderer->Blit(ball, App->physics->bullet.x, App->physics->bullet.y, NULL);
 	if (front)
 	{
-		App->renderer->Blit(cannon, App->physics->Cannon.x, App->physics->Cannon.y, NULL, NULL, App->physics->angle, 51, 51);
+		App->renderer->Blit(cannon, App->physics->Cannon.x, App->physics->Cannon.y, NULL, NULL, App->physics->angle, 25, 25);
 	}
 	else
 	{
-		App->renderer->BlitMirror(cannon, App->physics->Cannon.x-51, App->physics->Cannon.y, NULL, NULL, (App->physics->angle - 180), 149, 51);
+		App->renderer->BlitMirror(cannon, App->physics->Cannon.x-25, App->physics->Cannon.y, NULL, NULL, (App->physics->angle - 180), 75, 25);
 	}
 
 
