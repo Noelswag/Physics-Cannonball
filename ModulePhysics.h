@@ -52,7 +52,7 @@ public:
 	float density;
 	float densityW;
 	
-	float dragW = 1.0f;
+	
 
 	enum movementOptions
 	{
@@ -91,6 +91,8 @@ public:
 		float surface;
 		float volumen;
 		float Cd;
+
+		float dragW = 1.0f;
 
 		player() {
 

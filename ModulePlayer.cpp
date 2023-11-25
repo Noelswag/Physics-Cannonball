@@ -23,7 +23,7 @@ bool ModulePlayer::Start()
 	App->physics->Cannon.m = 100;
 	App->physics->Cannon.force = -50;
 	App->physics->Cannon.surface = 20;
-	App->physics->Cannon.volumen = 200;
+	App->physics->Cannon.volumen = 200.0f;
 
 	App->physics->applyGravity(&App->physics->Cannon);
 	App->physics->applyAerodynamics(&App->physics->Cannon);
@@ -90,6 +90,15 @@ update_status ModulePlayer::Update()
 		}
 	}
 	LOG("-----------------------JUMPVAL IS %d", jumpVal);
+
+	if (App->physics->Cannon.x > 300 && App->physics->Cannon.y > 274) {
+		App->physics->applyHydrodynamics(&App->physics->Cannon);
+		App->physics->Cannon.Fy += hydroVar;
+		if (hydroVar < App->physics->Cannon.m * GRAVITY_) {
+			hydroVar += 2;
+		}
+		
+	}
 
 	switch (movOption) {
 	case 0:
@@ -404,7 +413,7 @@ update_status ModulePlayer::Update()
 			break;
 		case ModulePlayer::JUMP_FORCE:
 			if (testPlayer == playerStatus::STOP_PLAYER) {
-				App->physics->Cannon.vy = -300;
+				App->physics->Cannon.vy = -30;
 			}
 			//App->physics->Cannon.jumpa = App->physics->Cannon.force / App->physics->Cannon.m;
 			//App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
@@ -429,6 +438,9 @@ update_status ModulePlayer::Update()
 		App->physics->Cannon.jumpv = 30;
 		App->physics->Cannon.jumpa = 0;
 		App->physics->Cannon.vy = 0;
+		if (App->physics->Cannon.x > 300) {
+			testPlayer = playerStatus::GRAVITY;
+		}
 		break;
 	case ModulePlayer::GRAVITY:
 		App->physics->applyWind(&App->physics->Cannon);
@@ -440,7 +452,7 @@ update_status ModulePlayer::Update()
 		if (App->physics->mode == 3)
 			App->physics->velocityVerlet(&App->physics->Cannon);
 
-		if (App->physics->Cannon.y >= 274) {
+		if (App->physics->Cannon.y >= 274 && App->physics->Cannon.x <= 300) {
 			jumpOption = 7;
 			testPlayer = playerStatus::STOP_PLAYER;
 			testJump = jumpOptions::NO_JUMP;

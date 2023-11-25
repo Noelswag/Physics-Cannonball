@@ -73,7 +73,7 @@ void ModulePhysics::bounceHorizontal(player* entity)
 void ModulePhysics::applyHydrodynamics(player* entity)
 {
 	entity->Fy -= densityW * GRAVITY_ * entity->volumen;
-	entity->Fy -= dragW * entity->vy;
+	entity->Fy -= entity->dragW * entity->vy;
 }
 
 void ModulePhysics::applyWind(player* entity)
@@ -171,7 +171,7 @@ update_status ModulePhysics::PostUpdate()
 	
 	totalvelocity = sqrt(pow(bullet.vx, 2) + pow(bullet.vy, 2));
 	
-	if (bullet.y >= floor && flying  && bullet.x >= 400)
+	if (bullet.y >= floor && flying  && bullet.x <= 300)
 	{
 		bullet.y = floor;
 		bounceVertical(&bullet);
@@ -183,11 +183,9 @@ update_status ModulePhysics::PostUpdate()
 		}
 	}
 	
-	if (bullet.y >= floor && bullet.x < 400 && flying)
+	if (bullet.y >= floor && bullet.x > 300 && flying)
 	{
 		applyHydrodynamics(&bullet);
-		
-		
 	}
 
 	

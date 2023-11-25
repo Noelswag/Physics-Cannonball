@@ -28,6 +28,8 @@ public:
 
 	bool front = true;
 
+	float hydroVar = 3.0f;
+
 	enum movementOptions
 	{
 		MOVX,
