@@ -186,6 +186,11 @@ update_status ModulePhysics::PostUpdate()
 	if (bullet.y >= floor && bullet.x > 300 && flying)
 	{
 		applyHydrodynamics(&bullet);
+		if (bullet.x > (double)SCREEN_WIDTH)
+		{
+			flying = false;
+			start = true;
+		}
 	}
 
 	
@@ -239,8 +244,8 @@ update_status ModulePhysics::PostUpdate()
 	if (mode == 3)
 		modetext = "Velocity Verlet";
 
-	displayx = x;
-	displayy = -(y-floor);
+	displayx = bullet.x;
+	displayy = -(bullet.y-floor);
 
 
 	if (App->player->front)

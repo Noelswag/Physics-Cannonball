@@ -16,7 +16,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player");
 
 	App->physics->Cannon.x = 0;
-	App->physics->Cannon.y = 274;
+	App->physics->Cannon.y = 300;
 	App->physics->Cannon.jumpv = 10;
 	App->physics->Cannon.jumpa = 0;
 	App->physics->Cannon.ax = 2;
@@ -91,7 +91,7 @@ update_status ModulePlayer::Update()
 	}
 	LOG("-----------------------JUMPVAL IS %d", jumpVal);
 
-	if (App->physics->Cannon.x > 300 && App->physics->Cannon.y > 274) {
+	if (App->physics->Cannon.x > 300 && App->physics->Cannon.y > 300) {
 		App->physics->applyHydrodynamics(&App->physics->Cannon);
 		App->physics->Cannon.Fy += hydroVar;
 		if (hydroVar < App->physics->Cannon.m * GRAVITY_) {
@@ -452,7 +452,7 @@ update_status ModulePlayer::Update()
 		if (App->physics->mode == 3)
 			App->physics->velocityVerlet(&App->physics->Cannon);
 
-		if (App->physics->Cannon.y >= 274 && App->physics->Cannon.x <= 300) {
+		if (App->physics->Cannon.y >= 300 && App->physics->Cannon.x <= 300) {
 			jumpOption = 7;
 			testPlayer = playerStatus::STOP_PLAYER;
 			testJump = jumpOptions::NO_JUMP;
