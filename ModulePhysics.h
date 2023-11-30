@@ -144,4 +144,5 @@ public:
 	player bullet;
 	player testCannon;
 	player Cannon;
+	player airdrop;
 };

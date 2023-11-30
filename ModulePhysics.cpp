@@ -89,7 +89,7 @@ void ModulePhysics::applyGravity(player* entity)
 
 void ModulePhysics::applyAerodynamics(player* entity)
 {
-	entity->Fy += (density * entity->surface * windy * windy * entity->Cd) / 2;
+	entity->Fy -= (density * entity->surface * windy * windy * entity->Cd) / 2;
 }
 
 void ModulePhysics::resetForces(player* entity)

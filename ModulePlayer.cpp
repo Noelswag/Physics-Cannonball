@@ -413,7 +413,7 @@ update_status ModulePlayer::Update()
 			break;
 		case ModulePlayer::JUMP_FORCE:
 			if (testPlayer == playerStatus::STOP_PLAYER) {
-				App->physics->Cannon.vy = -30;
+				App->physics->Cannon.vy = -300;
 			}
 			//App->physics->Cannon.jumpa = App->physics->Cannon.force / App->physics->Cannon.m;
 			//App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
