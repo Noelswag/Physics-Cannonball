@@ -1,4 +1,29 @@
 ﻿  Airdrop.cpp
-C:\Users\didacgp\Documents\GitHub\Physics-Cannonball\Airdrop.cpp(44,73): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\didacgp\Documents\GitHub\Physics-Cannonball\Airdrop.cpp(44,48): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  SDL Game.vcxproj -> C:\Users\didacgp\Documents\GitHub\Physics-Cannonball\Debug\Physics 2.exe
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Airdrop.cpp(44,73): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Airdrop.cpp(44,48): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+  Application.cpp
+  Main.cpp
+  ModuleAudio.cpp
+  ModuleCollisions.cpp
+  ModuleInput.cpp
+  ModulePhysics.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(78,42): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(89,25): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(251,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(252,13): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(257,18): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(261,24): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+  ModulePlayer.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(407,38): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(469,72): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(469,48): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(472,75): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(472,51): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(476,84): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(476,59): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+  ModuleRender.cpp
+  ModuleSceneIntro.cpp
+  ModuleTextures.cpp
+  ModuleWindow.cpp
+  Generando código...
+  SDL Game.vcxproj -> C:\Users\didac\Documents\GitHub\Physics-Cannonball\Debug\Physics 2.exe

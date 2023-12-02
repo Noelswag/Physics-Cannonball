@@ -136,13 +136,8 @@ bool ModulePhysics::Start()
 	bonk = App->audio->LoadFx("Sound/bonk.wav");
 	boom = App->audio->LoadFx("Sound/boom.wav");
 
-	SDL_Rect rect;
-	rect.x = 300;
-	rect.y = 300;
-	rect.w = 300;
-	rect.h = 300;
 
-	App->collisions->AddCollider(rect, Collider::Type::LIQUID_BODY, this);
+	
 
 	return true;
 }
@@ -156,8 +151,8 @@ update_status ModulePhysics::PreUpdate()
 // 
 update_status ModulePhysics::PostUpdate()
 {
-	if(App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
-		debug = !debug;
+	/*if(App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
+		debug = !debug;*/
 
 	if(!debug)
 		return UPDATE_CONTINUE;

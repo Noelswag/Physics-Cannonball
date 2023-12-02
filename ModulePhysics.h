@@ -52,6 +52,8 @@ public:
 	float density;
 	float densityW;
 	
+	bool debug = false;
+
 	
 
 	enum movementOptions
@@ -138,7 +140,7 @@ private:
 
 	
 	int movOption = 0;
-	bool debug;
+	
 
 public:
 	player bullet;

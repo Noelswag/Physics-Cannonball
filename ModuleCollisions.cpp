@@ -8,6 +8,9 @@
 ModuleCollisions::ModuleCollisions(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 
+	for (uint i = 0; i < MAX_COLLIDERS; ++i)
+		colliders[i] = nullptr;
+
 	matrix[Collider::Type::PLAYER1][Collider::Type::PLAYER1] = false;
 	matrix[Collider::Type::PLAYER1][Collider::Type::PLAYER2] = true;
 	matrix[Collider::Type::PLAYER1][Collider::Type::BULLET1] = false;
@@ -93,6 +96,12 @@ update_status ModuleCollisions::Update()
 	{
 		debug = !debug;
 	}
+
+	if (debug)
+	{
+		DebugDraw();
+
+	}
 	
 	return UPDATE_CONTINUE;
 }
@@ -101,11 +110,7 @@ update_status ModuleCollisions::Update()
 update_status ModuleCollisions::PostUpdate()
 {
 
-	if (debug)
-	{
-		DebugDraw();
-
-	}
+	
 
 
 	return UPDATE_CONTINUE;
@@ -120,11 +125,11 @@ void ModuleCollisions::DebugDraw()
 		if (colliders[i] == nullptr)
 			continue;
 
-		switch (colliders[i]->type)
+		switch(colliders[i]->type)
 		{
 			//I need to complete this
-		case Collider::Type::LIQUID_BODY: // blue
-			App->renderer->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
+		case Collider::Type::PLAYER1: // blue
+			App->renderer->DrawQuad(colliders[i]->rect, 255, 0, 0, 255);
 			break;
 		}
 	}

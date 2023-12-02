@@ -54,4 +54,10 @@ public:
 	p2DynArray<Light> lights;
 
 	uint player_lose_fx;
+
+	Collider* testCollider;
+
+	SDL_Rect rectCollider;
+
+	bool debugCollider = false;
 };
