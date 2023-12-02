@@ -22,6 +22,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+	void ModulePlayer::OnCollision(Collider* c1, Collider* c2);
 	SDL_Texture* cannon = nullptr;
 
 	SDL_Texture* ball = nullptr;

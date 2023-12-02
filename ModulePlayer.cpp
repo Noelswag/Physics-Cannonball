@@ -480,5 +480,8 @@ update_status ModulePlayer::Update()
 	return UPDATE_CONTINUE;
 }
 
+void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
+{
 
+}
 

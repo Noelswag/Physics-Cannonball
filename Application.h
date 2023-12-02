@@ -13,6 +13,7 @@
 #include "ModulePhysics.h"
 #include "ModuleSceneIntro.h"
 #include "Airdrop.h"
+#include "ModuleCollisions.h"
 
 class Application
 {
@@ -26,6 +27,7 @@ public:
 	ModuleSceneIntro* scene_intro;
 	ModulePhysics* physics;
 	Airdrop* airdropModule;
+	ModuleCollisions* collisions;
 
 private:
 

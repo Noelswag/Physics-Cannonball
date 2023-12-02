@@ -1,14 +1,6 @@
-﻿  ModulePlayer.cpp
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(407,38): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(469,72): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(469,48): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(472,75): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(472,51): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(476,84): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(476,59): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+﻿  ModuleCollisions.cpp
   Generating code
-  1 of 130 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 153 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   SDL Game.vcxproj -> C:\Users\Noel Colon Gainza\Documents\GitHub\Physics-Cannonball\Release\Physics 2.exe

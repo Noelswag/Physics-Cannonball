@@ -8,6 +8,8 @@
 ModulePhysics::ModulePhysics(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
 	debug = true;
+	
+	
 }
 
 // Destructor
@@ -134,6 +136,13 @@ bool ModulePhysics::Start()
 	bonk = App->audio->LoadFx("Sound/bonk.wav");
 	boom = App->audio->LoadFx("Sound/boom.wav");
 
+	SDL_Rect rect;
+	rect.x = 300;
+	rect.y = 300;
+	rect.w = 300;
+	rect.h = 300;
+
+	App->collisions->AddCollider(rect, Collider::Type::LIQUID_BODY, this);
 
 	return true;
 }

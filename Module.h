@@ -1,6 +1,7 @@
 #pragma once
 
 class Application;
+struct Collider;
 
 class Module
 {
@@ -69,4 +70,8 @@ public:
 		return true; 
 	}
 
+	virtual void OnCollision(Collider* c1, Collider* c2)
+	{
+		return;
+	}
 };
