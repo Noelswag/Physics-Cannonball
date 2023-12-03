@@ -31,7 +31,7 @@ bool ModulePlayer2::Start()
 
 	cannon2 = App->textures->Load("Graphics/Cannon2.png");
 	ball2 = App->textures->Load("Graphics/Ball2.png");
-	p1wins = ball2 = App->textures->Load("Graphics/p1wins.png");
+	p1wins = App->textures->Load("Graphics/p1wins.png");
 
 	Player2Rect.x = App->physics->Cannon2.x;
 	Player2Rect.y = App->physics->Cannon2.y;
