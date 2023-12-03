@@ -16,7 +16,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player");
 
 	App->physics->Cannon.x = 0;
-	App->physics->Cannon.y = 300;
+	App->physics->Cannon.y = 315;
 	App->physics->Cannon.jumpv = 10;
 	App->physics->Cannon.jumpa = 0;
 	App->physics->Cannon.ax = 2;
@@ -31,6 +31,25 @@ bool ModulePlayer::Start()
 
 	cannon = App->textures->Load("Graphics/Cannon2.png");
 	ball = App->textures->Load("Graphics/Ball2.png");
+
+	PlayerRect.x = App->physics->Cannon.x;
+	PlayerRect.y = App->physics->Cannon.y;
+	PlayerRect.w = 25;
+	PlayerRect.h = 25;
+
+	bulletRect.x = App->physics->bullet.x;
+	bulletRect.y = App->physics->bullet.y;
+	bulletRect.w = 10;
+	bulletRect.h = 10;
+
+	playerCollider = App->collisions->AddCollider(PlayerRect, Collider::Type::PLAYER1, this);
+	bulletCollider = App->collisions->AddCollider(bulletRect, Collider::Type::BULLET1, this);
+
+	lifeBar.x = App->physics->Cannon.x;
+	lifeBar.y = App->physics->Cannon.y - 15;
+	lifeBar.w = 50;
+	lifeBar.h = 7;
+
 	return true;
 }
 
@@ -45,6 +64,127 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
+	
+
+	if (App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
+		debugCollider = !debugCollider;
+
+	// Bullet Launch
+	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
+		App->physics->mode = 1;
+	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
+		App->physics->mode = 2;
+	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
+		App->physics->mode = 3;
+
+
+	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
+		if (App->physics->power < 600)
+			App->physics->power += 10;
+	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
+		if (App->physics->power > 100)
+			App->physics->power -= 10;
+
+
+	App->physics->totalvelocity = sqrt(pow(App->physics->bullet.vx, 2) + pow(App->physics->bullet.vy, 2));
+
+	/*if (App->physics->bullet.y >= App->physics->floor && App->physics->flying && (App->physics->bullet.x <= 200 || App->physics->bullet.x >= 400))
+	{
+		App->physics->bullet.y = App->physics->floor;
+		App->physics->bounceVertical(&App->physics->bullet);
+		App->audio->PlayFx(App->physics->bonk);
+		if ((App->physics->bullet.x > (double)SCREEN_WIDTH || App->physics->bullet.x < -25 || App->physics->totalvelocity < 125) && App->physics->flying)
+		{
+			App->physics->flying = false;
+			App->physics->start = true;
+		}
+	}*/
+
+	/*if (App->physics->bullet.y >= 380 && App->physics->bullet.x > 260 && App->physics->bullet.x < 380 && App->physics->flying)
+	{
+		App->physics->applyHydrodynamics(&App->physics->bullet);
+		if (App->physics->bullet.x > (double)SCREEN_WIDTH)
+		{
+			App->physics->flying = false;
+			App->physics->start = true;
+		}
+	}*/
+
+
+	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
+	{
+		if (App->physics->start)
+		{
+			App->physics->start = false;
+			App->physics->flying = true;
+
+			App->physics->anglerad = -App->physics->angle * M_PI / 180;
+			App->physics->bullet.vx = cos(App->physics->anglerad) * App->physics->power;
+			App->physics->bullet.vy = -sin(App->physics->anglerad) * App->physics->power;
+
+			App->physics->bullet.x = (App->physics->Cannon.x + 13) + 75 * cos(App->physics->anglerad);
+			App->physics->bullet.y = (double)App->physics->Cannon.y - 75 * sin(App->physics->anglerad);
+			App->physics->spin = 0;
+			App->audio->PlayFx(App->physics->boom);
+			//Offsets so that the ball comes out off the cannon. Uncomment the lines below for 0,0
+
+			App->physics->bullet.x = App->physics->Cannon.x + 13;
+			App->physics->bullet.y = App->physics->Cannon.y + 13;
+			/*
+			x = 0;
+			y = floor;
+			*/
+		}
+	}
+
+	if (App->physics->flying)
+	{
+
+		App->physics->applyWind(&App->physics->bullet);
+
+		if (App->physics->mode == 1)
+			App->physics->euler(&App->physics->bullet);
+		if (App->physics->mode == 2)
+			App->physics->eulerSympletic(&App->physics->bullet);
+		if (App->physics->mode == 3)
+			App->physics->velocityVerlet(&App->physics->bullet);
+
+		App->physics->spin += 10;
+	}
+
+	if (App->physics->mode == 1)
+		App->physics->modetext = "Euler";
+
+	if (App->physics->mode == 2)
+		App->physics->modetext = "Sympletic Euler";
+
+	if (App->physics->mode == 3)
+		App->physics->modetext = "Velocity Verlet";
+
+	App->physics->displayx = App->physics->bullet.x;
+	App->physics->displayy = -(App->physics->bullet.y - App->physics->floor);
+
+
+	if (App->player->front)
+	{
+		App->physics->displayAngle = -App->physics->angle;
+	}
+	else
+	{
+		App->physics->displayAngle = (-180 - App->physics->angle);
+	}
+
+	App->physics->displayPower = (App->physics->power / 10 - 10) * 2;
+
+
+
+	sprintf_s(App->physics->titletext, 200, "X:%03d Y:%03d Angle: %02d (left/right) Power: %02d (up/down) Mode: %s(1,2,3)", App->physics->displayx, App->physics->displayy, App->physics->displayAngle, App->physics->displayPower, App->physics->modetext);
+
+	App->window->SetTitle(App->physics->titletext);
+
+
+	App->physics->resetForces(&App->physics->bullet);
+
 	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
 	{
 
@@ -91,7 +231,7 @@ update_status ModulePlayer::Update()
 	}
 	LOG("-----------------------JUMPVAL IS %d", jumpVal);
 
-	if (App->physics->Cannon.x > 300 && App->physics->Cannon.y > 300) {
+	if (App->physics->Cannon.x > 200 && App->physics->Cannon.x < 400 && App->physics->Cannon.y > 300) {
 		App->physics->applyHydrodynamics(&App->physics->Cannon);
 		App->physics->Cannon.Fy += hydroVar;
 		if (hydroVar < App->physics->Cannon.m * GRAVITY_) {
@@ -166,6 +306,7 @@ update_status ModulePlayer::Update()
 		LOG("--------------------NO JUMPING");
 		break;
 	}
+
 
 	switch (test)
 	{
@@ -438,7 +579,7 @@ update_status ModulePlayer::Update()
 		App->physics->Cannon.jumpv = 30;
 		App->physics->Cannon.jumpa = 0;
 		App->physics->Cannon.vy = 0;
-		if (App->physics->Cannon.x > 300) {
+		if (App->physics->Cannon.x > 200 && App->physics->Cannon.x < 400) {
 			testPlayer = playerStatus::GRAVITY;
 		}
 		break;
@@ -451,37 +592,108 @@ update_status ModulePlayer::Update()
 			App->physics->eulerSympletic(&App->physics->Cannon);
 		if (App->physics->mode == 3)
 			App->physics->velocityVerlet(&App->physics->Cannon);
-
-		if (App->physics->Cannon.y >= 300 && App->physics->Cannon.x <= 300) {
-			jumpOption = 7;
-			testPlayer = playerStatus::STOP_PLAYER;
-			testJump = jumpOptions::NO_JUMP;
-			
-		}
 		
 		break;
 	}
 
 	App->physics->resetForces(&App->physics->Cannon);
 	
+	
+	if (life > 0) {
+		App->renderer->Blit(ball, App->physics->bullet.x, App->physics->bullet.y, NULL);
+		if (front)
+		{
+			App->renderer->Blit(cannon, App->physics->Cannon.x, App->physics->Cannon.y, NULL, NULL, App->physics->angle, 25, 25);
+		}
+		else
+		{
+			App->renderer->BlitMirror(cannon, App->physics->Cannon.x - 25, App->physics->Cannon.y, NULL, NULL, (App->physics->angle - 180), 75, 25);
+		}
+	}
+	
+
+	lifeBar.x = App->physics->Cannon.x;
+	lifeBar.y = App->physics->Cannon.y - 15;
+	App->renderer->DrawQuad(lifeBar, 0, 255, 0, 255);
+
+	// Debug colliders
+	playerCollider->SetPos(App->physics->Cannon.x, App->physics->Cannon.y);
+	PlayerRect.x = App->physics->Cannon.x;
+	PlayerRect.y = App->physics->Cannon.y;
+	bulletCollider->SetPos(App->physics->bullet.x, App->physics->bullet.y);
+	bulletRect.x = App->physics->bullet.x + 2;
+	bulletRect.y = App->physics->bullet.y + 2;
+
+	if (debugCollider)
+	{
+		App->renderer->DrawQuad(PlayerRect, 0, 255, 0, 80);
+		App->renderer->DrawQuad(bulletRect, 255, 0, 0, 80);
+
+	}
+
+	waitForDmg++;
+	if (waitForDmg >= 60) {
+		canDmg = true;
+		waitForDmg = 0;
+	}
 
 	
-	App->renderer->Blit(ball, App->physics->bullet.x, App->physics->bullet.y, NULL);
-	if (front)
-	{
-		App->renderer->Blit(cannon, App->physics->Cannon.x, App->physics->Cannon.y, NULL, NULL, App->physics->angle, 25, 25);
-	}
-	else
-	{
-		App->renderer->BlitMirror(cannon, App->physics->Cannon.x-25, App->physics->Cannon.y, NULL, NULL, (App->physics->angle - 180), 75, 25);
-	}
-
+	
 
 	return UPDATE_CONTINUE;
 }
 
 void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 {
+
+	if (c1->type == Collider::Type::PLAYER1 && c2->type == Collider::Type::BULLET2) {
+		if (canDmg) {
+			life -= dmg;
+			lifeBar.w -= 10;
+			canDmg = false;
+		}
+		
+	}
+	if (c1->type == Collider::Type::PLAYER1 && c2->type == Collider::Type::FALL && testPlayer == playerStatus::STOP_PLAYER) {
+		testPlayer = playerStatus::GRAVITY;
+	}
+
+	if (c1->type == Collider::Type::PLAYER1 && c2->type == Collider::Type::SOLID_BODY && testPlayer == playerStatus::GRAVITY) {
+		if (c1->rect.y < c2->rect.y) {
+			testPlayer = playerStatus::STOP_PLAYER;
+			jumpOption = 7;
+			testJump = jumpOptions::NO_JUMP;
+		}
+		
+		if (c1->rect.y > c2->rect.y) {
+			App->physics->Cannon.x--;
+			canMove = false;
+		}
+		
+		
+	}
+
+	if (c1->type == Collider::Type::BULLET1 && c2->type == Collider::Type::SOLID_BODY) {
+		if (c1->rect.y < c2->rect.y) {
+			
+			App->physics->bounceVertical(&App->physics->bullet);
+			if ((App->physics->bullet.x > (double)SCREEN_WIDTH || App->physics->bullet.x < -25 || App->physics->totalvelocity < 125) && App->physics->flying) {
+				App->physics->flying = false;
+				App->physics->start = true;
+			}
+		}
+		else if (c1->rect.y > c2->rect.y) {
+			App->physics->bounceHorizontal(&App->physics->bullet);
+		}
+	}
+	else if (c1->type == Collider::Type::BULLET1 && c2->type == Collider::Type::LIQUID_BODY && App->physics->flying == true) {
+		App->physics->applyHydrodynamics(&App->physics->bullet);
+		if (App->physics->bullet.x > (double)SCREEN_WIDTH)
+		{
+			App->physics->flying = false;
+			App->physics->start = true;
+		}
+	}
 
 }
 

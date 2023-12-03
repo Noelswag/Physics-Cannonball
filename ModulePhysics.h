@@ -26,24 +26,35 @@ public:
 	double vx;
 	double vy;
 	double totalvelocity;
+	double totalvelocity2;
 	double a;
 	double t;
 	int power;
+	int power2;
 	int floor;
 	bool start;
+	bool start2;
 	bool flying;
+	bool flying2;
 	bool inWater;
 	bool end;
 	int mode;
 	double angle;
+	double angle2;
 	double anglerad;
+	double anglerad2;
 	char* modetext;
 	char titletext[200] = { "\0" };
 	int displayAngle;
+	int displayAngle2;
 	int displayx;
+	int displayx2;
 	int displayy;
+	int displayy2;
 	int displayPower;
+	int displayPower2;
 	int spin;
+	int spin2;
 	uint bonk = 0;
 	uint boom = 0;
 
@@ -144,7 +155,9 @@ private:
 
 public:
 	player bullet;
+	player bullet2;
 	player testCannon;
 	player Cannon;
+	player Cannon2;
 	player airdrop;
 };

@@ -18,7 +18,9 @@ struct Collider
 		BULLET2,
 		SOLID_BODY,
 		LIQUID_BODY,
-
+		FALL,
+		LATERAL_IZ,
+		LATERAL_D,
 		MAX
 	};
 

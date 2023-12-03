@@ -32,6 +32,35 @@ ModuleCollisions::ModuleCollisions(Application* app, bool start_enabled) : Modul
 	matrix[Collider::Type::BULLET1][Collider::Type::BULLET2] = true;
 	matrix[Collider::Type::BULLET1][Collider::Type::LIQUID_BODY] = true;
 	matrix[Collider::Type::BULLET1][Collider::Type::SOLID_BODY] = true;
+
+	matrix[Collider::Type::BULLET2][Collider::Type::PLAYER1] = true;
+	matrix[Collider::Type::BULLET2][Collider::Type::PLAYER2] = false;
+	matrix[Collider::Type::BULLET2][Collider::Type::BULLET1] = true;
+	matrix[Collider::Type::BULLET2][Collider::Type::BULLET2] = false;
+	matrix[Collider::Type::BULLET2][Collider::Type::LIQUID_BODY] = true;
+	matrix[Collider::Type::BULLET2][Collider::Type::SOLID_BODY] = true;
+
+	matrix[Collider::Type::SOLID_BODY][Collider::Type::PLAYER1] = true;
+	matrix[Collider::Type::SOLID_BODY][Collider::Type::PLAYER2] = true;
+	matrix[Collider::Type::SOLID_BODY][Collider::Type::BULLET1] = true;
+	matrix[Collider::Type::SOLID_BODY][Collider::Type::BULLET2] = true;
+	matrix[Collider::Type::SOLID_BODY][Collider::Type::LIQUID_BODY] = false;
+	matrix[Collider::Type::SOLID_BODY][Collider::Type::SOLID_BODY] = false;
+
+	matrix[Collider::Type::LIQUID_BODY][Collider::Type::PLAYER1] = true;
+	matrix[Collider::Type::LIQUID_BODY][Collider::Type::PLAYER2] = true;
+	matrix[Collider::Type::LIQUID_BODY][Collider::Type::BULLET1] = true;
+	matrix[Collider::Type::LIQUID_BODY][Collider::Type::BULLET2] = true;
+	matrix[Collider::Type::LIQUID_BODY][Collider::Type::LIQUID_BODY] = false;
+	matrix[Collider::Type::LIQUID_BODY][Collider::Type::SOLID_BODY] = false;
+
+	matrix[Collider::Type::FALL][Collider::Type::PLAYER1] = true;
+	matrix[Collider::Type::FALL][Collider::Type::PLAYER2] = true;
+	matrix[Collider::Type::FALL][Collider::Type::BULLET1] = true;
+	matrix[Collider::Type::FALL][Collider::Type::BULLET2] = true;
+	matrix[Collider::Type::FALL][Collider::Type::LIQUID_BODY] = false;
+	matrix[Collider::Type::FALL][Collider::Type::SOLID_BODY] = false;
+
 }
 
 ModuleCollisions::~ModuleCollisions()

@@ -29,7 +29,25 @@ public:
 
 	bool front = true;
 
+	int waitForDmg = 0;
+	bool canDmg = true;
+
 	float hydroVar = 3.0f;
+
+	bool debugCollider = false;
+
+	Collider* playerCollider;
+	SDL_Rect PlayerRect;
+
+	Collider* bulletCollider;
+	SDL_Rect bulletRect;
+
+	float life = 100;
+	float dmg = 20;
+
+	SDL_Rect lifeBar;
+
+	bool canMove = true;
 
 	enum movementOptions
 	{
@@ -59,7 +77,7 @@ public:
 	};
 	movementOptions test = movementOptions::MOVX;
 	jumpOptions testJump = jumpOptions::NO_JUMP;
-	playerStatus testPlayer = playerStatus::STOP_PLAYER;
+	playerStatus testPlayer = playerStatus::GRAVITY;
 	
 
 public:

@@ -108,6 +108,8 @@ bool ModulePhysics::Start()
 	
 	start = true;
 	flying = false;
+	start2 = true;
+	flying2 = false;
 	inWater = false;
 	end = false;
 	
@@ -117,6 +119,9 @@ bool ModulePhysics::Start()
 	
 	power = 350;
 	angle = -45;
+
+	power2 = 350;
+	angle2 = -45;
 
 	windx = 0.0f;
 	windy = -1.0f;
@@ -130,8 +135,18 @@ bool ModulePhysics::Start()
 	bullet.volumen = 100.0f;
 	bullet.m = 50;
 
+	bullet2.Cd = 0.47f;
+	bullet2.x = 999;
+	bullet2.y = (double)floor - 999;
+	bullet2.surface = 10.0f;
+	bullet2.volumen = 100.0f;
+	bullet2.m = 50;
+
 	applyGravity(&bullet);
 	applyAerodynamics(&bullet);
+
+	applyGravity(&bullet2);
+	applyAerodynamics(&bullet2);
 
 	bonk = App->audio->LoadFx("Sound/bonk.wav");
 	boom = App->audio->LoadFx("Sound/boom.wav");
@@ -151,126 +166,13 @@ update_status ModulePhysics::PreUpdate()
 // 
 update_status ModulePhysics::PostUpdate()
 {
-	/*if(App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
-		debug = !debug;*/
+	if(App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
+		debug = !debug;
 
-	if(!debug)
-		return UPDATE_CONTINUE;
+	/*if(!debug)
+		return UPDATE_CONTINUE;*/
 	
-	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
-		mode = 1;
-	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
-		mode = 2;
-	if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
-		mode = 3;
-
-
-	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		if (power < 600)
-			power+=10;
-	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		if (power > 100)
-			power-=10;
-
 	
-	totalvelocity = sqrt(pow(bullet.vx, 2) + pow(bullet.vy, 2));
-	
-	if (bullet.y >= floor && flying  && bullet.x <= 300)
-	{
-		bullet.y = floor;
-		bounceVertical(&bullet);
-		App->audio->PlayFx(bonk);
-		if ((bullet.x > (double)SCREEN_WIDTH || bullet.x < -25 || totalvelocity<125) && flying)
-		{
-			flying = false;
-			start = true;
-		}
-	}
-	
-	if (bullet.y >= floor && bullet.x > 300 && flying)
-	{
-		applyHydrodynamics(&bullet);
-		if (bullet.x > (double)SCREEN_WIDTH)
-		{
-			flying = false;
-			start = true;
-		}
-	}
-
-	
-	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
-	{
-		if (start)
-		{
-			start = false;
-			flying = true;
-			
-			anglerad = -angle * M_PI / 180;
-			bullet.vx = cos(anglerad)*power;
-			bullet.vy = -sin(anglerad) * power;
-
-			bullet.x = (Cannon.x+13)+75*cos(anglerad);
-			bullet.y = (double)Cannon.y-75*sin(anglerad);
-			spin = 0;
-			App->audio->PlayFx(boom);
-			//Offsets so that the ball comes out off the cannon. Uncomment the lines below for 0,0
-
-			bullet.x = Cannon.x + 13;
-			bullet.y = Cannon.y + 13;
-			/*
-			x = 0;
-			y = floor;
-			*/
-		}
-	}
-
-	if (flying)
-	{
-
-		applyWind(&bullet);
-		
-		if (mode == 1)
-			euler(&bullet);
-		if (mode == 2)
-			eulerSympletic(&bullet);
-		if (mode == 3)
-			velocityVerlet(&bullet);
-
-		spin += 10;
-	}
-
-	if (mode == 1)
-		modetext = "Euler";
-
-	if (mode == 2)
-		modetext = "Sympletic Euler";
-	
-	if (mode == 3)
-		modetext = "Velocity Verlet";
-
-	displayx = bullet.x;
-	displayy = -(bullet.y-floor);
-
-
-	if (App->player->front)
-	{
-		displayAngle = -angle;
-	}
-	else
-	{
-		displayAngle = (-180 - angle);
-	}
-
-	displayPower = (power / 10 - 10) * 2;
-
-
-	
-	sprintf_s(titletext, 200, "X:%03d Y:%03d Angle: %02d (left/right) Power: %02d (up/down) Mode: %s(1,2,3)", displayx, displayy, displayAngle, displayPower, modetext);
-
-	App->window->SetTitle(titletext);
-
-	
-	resetForces(&bullet);
 
 	return UPDATE_CONTINUE;
 }

@@ -1,29 +1,724 @@
 ﻿  Airdrop.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
 C:\Users\didac\Documents\GitHub\Physics-Cannonball\Airdrop.cpp(44,73): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
 C:\Users\didac\Documents\GitHub\Physics-Cannonball\Airdrop.cpp(44,48): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
   Application.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
+  Collider.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_Rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(3,1): error C2653: 'Collider': no es un nombre de clase o espacio de nombres
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(3,40): error C2061: error de sintaxis: identificador 'Type'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(3,69): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(3,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_Rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(3,93): error C2065: 'type': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(4,1): error C2550: 'Collider': las listas de inicializadores de constructor solo se permiten en las definiciones de constructor
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(5,2): error C2065: 'listeners': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(5,17): error C2065: 'listener': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(6,1): warning C4508: 'Collider': la función debe devolver un valor; se supone que el tipo de valor devuelto es 'void'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(8,6): error C2653: 'Collider': no es un nombre de clase o espacio de nombres
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(10,2): error C2065: 'rect': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(11,2): error C2065: 'rect': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(14,6): error C2653: 'Collider': no es un nombre de clase o espacio de nombres
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(15,1): error C2270: 'Intersects': modificadores no permitidos en funciones que no sean miembro
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(16,10): error C2065: 'rect': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(16,20): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_Rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(16,26): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_Rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(17,4): error C2065: 'rect': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(17,13): error C2065: 'rect': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(17,23): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_Rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(18,4): error C2065: 'rect': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(18,14): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_Rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(18,20): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_Rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(19,4): error C2065: 'rect': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(19,13): error C2065: 'rect': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(19,23): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_Rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(22,6): error C2653: 'Collider': no es un nombre de clase o espacio de nombres
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(26,7): error C2065: 'listeners': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(28,4): error C2065: 'listeners': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.cpp(33,12): error C2065: 'listeners': identificador no declarado
   Main.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
   ModuleAudio.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
   ModuleCollisions.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(14,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(14,25): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(14,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(14,50): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(15,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(15,25): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(15,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(15,50): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(16,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(16,25): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(16,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(16,50): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(17,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(17,25): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(17,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(17,50): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(18,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(18,25): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(18,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(18,50): error C2065: 'LIQUID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(19,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(19,25): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(19,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(19,50): error C2065: 'SOLID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(21,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(21,25): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(21,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(21,50): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(22,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(22,25): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(22,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(22,50): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(23,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(23,25): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(23,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(23,50): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(24,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(24,25): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(24,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(24,50): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(25,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(25,25): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(25,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(25,50): error C2065: 'LIQUID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(26,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(26,25): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(26,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(26,50): error C2065: 'SOLID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(29,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(29,25): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(29,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(29,50): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(30,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(30,25): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(30,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(30,50): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(31,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(31,25): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(31,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(31,50): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(32,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(32,25): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(32,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(32,50): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(33,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(33,25): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(33,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(33,50): error C2065: 'LIQUID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(34,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(34,25): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(34,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(34,50): error C2065: 'SOLID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(36,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(36,25): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(36,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(36,50): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(37,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(37,25): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(37,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(37,50): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(38,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(38,25): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(38,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(38,50): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(39,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(39,25): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(39,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(39,50): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(40,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(40,25): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(40,44): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(40,50): error C2065: 'LIQUID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(41,19): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(41,25): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.cpp(41,32): fatal error C1003: el recuento de errores supera 100; se detiene la compilación
   ModuleInput.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
   ModulePhysics.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
 C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(78,42): warning C4244: '-=': conversión de 'double' a 'float'; posible pérdida de datos
 C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(89,25): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(251,19): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(252,13): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(257,18): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePhysics.cpp(261,24): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
   ModulePlayer.cpp
-C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(407,38): warning C4305: '+=': truncamiento de 'double' a 'float'
-C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(469,72): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(469,48): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(472,75): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(472,51): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(476,84): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(476,59): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(7,1): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(35,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(36,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(37,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(38,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(40,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(41,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(42,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(43,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(45,70): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(45,76): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(46,70): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(46,76): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(48,9): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(49,9): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(50,9): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(51,9): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(164,47): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(165,27): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(170,32): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(174,38): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(548,38): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(603,73): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(603,49): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(606,76): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(606,52): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(610,87): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(610,61): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(615,9): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(616,9): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(620,16): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(621,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(622,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(623,16): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(624,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(625,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(649,5): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(649,28): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(649,34): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(649,67): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(649,73): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(652,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(657,5): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(657,28): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(657,34): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(657,67): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(657,73): error C2065: 'FALL': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(661,5): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(661,28): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(661,34): error C2065: 'PLAYER1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(661,67): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(661,73): error C2065: 'SOLID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(662,6): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(668,6): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(676,5): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(676,28): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(676,34): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(676,67): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(676,73): error C2065: 'SOLID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(677,6): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(685,11): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(689,10): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(689,33): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(689,39): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(689,72): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer.cpp(689,78): error C2065: 'LIQUID_BODY': identificador no declarado
+  ModulePlayer2.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(7,1): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(35,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(36,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(37,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(38,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(40,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(41,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(42,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(43,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(45,72): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(45,78): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(46,72): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(46,78): error C2065: 'BULLET2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(48,10): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(49,10): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(50,10): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(51,10): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(164,49): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(165,28): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(170,33): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(174,39): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(547,38): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(607,76): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(607,51): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(610,79): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(610,54): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(614,90): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(614,63): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(619,10): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(620,10): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(625,17): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(626,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(627,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(628,17): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(629,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(630,13): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(649,5): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(649,28): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(649,34): error C2065: 'PLAYER2': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(649,67): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(649,73): error C2065: 'BULLET1': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModulePlayer2.cpp(652,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
   ModuleRender.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(6,1): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(8,8): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(8,19): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(9,8): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(10,8): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(94,11): error C2079: 'rect' utiliza struct 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(95,24): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(96,24): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(100,19): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(101,19): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(105,57): error C2660: 'SDL_QueryTexture': la función no acepta 3 argumentos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_render.h(273,29): message : vea la declaración de 'SDL_QueryTexture'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(121,4): error C2664: 'int SDL_RenderCopyEx(SDL_Renderer *,SDL_Texture *,const SDL_Rect *,const SDL_Rect *,const double,const SDL_Point *,const SDL_RendererFlip)': el argumento 4 no puede convertirse de 'int *' a 'const SDL_Rect *'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(121,50): message : Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_render.h(800,29): message : vea la declaración de 'SDL_RenderCopyEx'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(133,11): error C2079: 'rect' utiliza struct 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(134,23): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(135,23): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(139,19): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(140,19): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(144,57): error C2660: 'SDL_QueryTexture': la función no acepta 3 argumentos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_render.h(273,29): message : vea la declaración de 'SDL_QueryTexture'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(160,5): error C2664: 'int SDL_RenderCopyEx(SDL_Renderer *,SDL_Texture *,const SDL_Rect *,const SDL_Rect *,const double,const SDL_Point *,const SDL_RendererFlip)': el argumento 4 no puede convertirse de 'int *' a 'const SDL_Rect *'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(160,51): message : Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_render.h(800,29): message : vea la declaración de 'SDL_RenderCopyEx'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(176,11): error C2079: 'rec' utiliza struct 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(176,14): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(179,23): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(179,32): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(180,23): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(180,32): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(185,59): error C2664: 'int SDL_RenderFillRect(SDL_Renderer *,const SDL_Rect *)': el argumento 2 no puede convertirse de 'int *' a 'const SDL_Rect *'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(185,55): message : Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_render.h(752,29): message : vea la declaración de 'SDL_RenderFillRect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(185,96): error C2664: 'int SDL_RenderDrawRect(SDL_Renderer *,const SDL_Rect *)': el argumento 2 no puede convertirse de 'int *' a 'const SDL_Rect *'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(185,92): message : Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_render.h(727,29): message : vea la declaración de 'SDL_RenderDrawRect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(206,47): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(206,76): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(206,105): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(206,134): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleRender.cpp(206,155): error C2660: 'SDL_RenderDrawLine': la función no acepta 1 argumentos
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_render.h(703,29): message : vea la declaración de 'SDL_RenderDrawLine'
   ModuleSceneIntro.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(8,1): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(21,23): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(21,49): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(24,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(25,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(26,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(27,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(29,62): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(29,68): error C2065: 'SOLID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(31,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(32,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(33,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(34,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(36,62): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(36,68): error C2065: 'SOLID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(38,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(39,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(40,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(41,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(43,62): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(43,68): error C2065: 'SOLID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(45,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(46,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(47,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(48,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(50,62): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(50,68): error C2065: 'SOLID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(52,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(53,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(54,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(55,12): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(57,62): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(57,68): error C2065: 'SOLID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(59,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(60,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(61,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(62,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(64,60): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(64,66): error C2065: 'LIQUID_BODY': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(66,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(67,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(68,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(69,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(71,60): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(71,66): error C2065: 'FALL': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(73,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(74,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(75,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(76,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(78,60): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(78,66): error C2065: 'FALL': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(80,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(81,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(82,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(83,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(85,60): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(85,66): error C2065: 'FALL': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(87,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(88,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(89,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(90,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(92,60): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(92,66): error C2065: 'FALL': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(94,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(95,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(96,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(97,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(99,60): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(99,66): error C2065: 'FALL': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(101,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(102,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(103,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(104,11): error C2027: uso del tipo 'SDL_Rect' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(106,60): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleSceneIntro.cpp(106,66): error C2065: 'FALL': identificador no declarado
   ModuleTextures.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
   ModuleWindow.cpp
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Collider.h(11,1): error C2011: 'SDL_Rect': nueva definición del tipo 'struct'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\SDL\include\SDL_rect.h(64): message : vea la declaración de 'SDL_Rect'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,24): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,30): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,45): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(12,51): error C2065: 'MAX': identificador no declarado
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,49): error C2027: uso del tipo 'Collider' sin definir
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\Module.h(4): message : vea la declaración de 'Collider'
+C:\Users\didac\Documents\GitHub\Physics-Cannonball\ModuleCollisions.h(24,54): error C2061: error de sintaxis: identificador 'Type'
   Generando código...
-  SDL Game.vcxproj -> C:\Users\didac\Documents\GitHub\Physics-Cannonball\Debug\Physics 2.exe
