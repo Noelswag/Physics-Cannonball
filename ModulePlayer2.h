@@ -17,7 +17,13 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void ModulePlayer2::OnCollision(Collider* c1, Collider* c2);
+	// Collision Resolution
+	void CollisionResolutionPlayer2(SDL_Rect& r);
+	// Collide
+	bool Collide2(SDL_Rect& r, SDL_Rect& r2);
 	SDL_Texture* cannon2 = nullptr;
+
+	SDL_Texture* p1wins = nullptr;
 
 	SDL_Texture* ball2 = nullptr;
 
@@ -69,7 +75,7 @@ public:
 	};
 	movement2Options test2 = movement2Options::MOVX;
 	jump2Options testJump2 = jump2Options::NO_JUMP;
-	player2Status testPlayer2 = player2Status::STOP_PLAYER;
+	player2Status testPlayer2 = player2Status::GRAVITY;
 
 
 public:

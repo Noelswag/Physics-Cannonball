@@ -10,6 +10,11 @@
 #define METERS_TO_PIXELS(m) ((int) floor(PIXELS_PER_METER * m))
 #define PIXEL_TO_METERS(p)  ((float) METER_PER_PIXEL * p)
 
+struct Vector2D
+{
+	int x, y;
+};
+
 class ModulePhysics : public Module
 {
 public:
@@ -145,6 +150,8 @@ public:
 	void applyAerodynamics(player* entity);
 
 	void resetForces(player* entity);
+
+
 	
 
 private:

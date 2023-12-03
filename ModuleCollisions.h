@@ -29,6 +29,8 @@ public:
 	// Draws all existing colliders with some transparency
 	void DebugDraw();
 
+	
+
 	// Simple debugging flag to draw all colliders
 	bool debug = false;
 

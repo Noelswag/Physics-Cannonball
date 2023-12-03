@@ -85,7 +85,7 @@ bool ModuleSceneIntro::Start()
 	fall3 = App->collisions->AddCollider(fall3Rect, Collider::Type::FALL, this);
 
 	fall4Rect.x = 340;
-	fall4Rect.y = 350;
+	fall4Rect.y = 340;
 	fall4Rect.w = 10;
 	fall4Rect.h = 10;
 
@@ -140,6 +140,7 @@ update_status ModuleSceneIntro::Update()
 		App->renderer->DrawQuad(fall4Rect, 0, 255, 255, 80);
 		App->renderer->DrawQuad(fall5Rect, 0, 255, 255, 80);
 		App->renderer->DrawQuad(fall6Rect, 0, 255, 255, 80);
+		
 	}
 
 	return UPDATE_CONTINUE;

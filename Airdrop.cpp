@@ -41,7 +41,7 @@ update_status Airdrop::Update()
 
 
 
-	App->renderer->Blit(box, App->physics->airdrop.x, App->physics->airdrop.y, NULL);
+	//App->renderer->Blit(box, App->physics->airdrop.x, App->physics->airdrop.y, NULL);
 
 	return UPDATE_CONTINUE;
 }

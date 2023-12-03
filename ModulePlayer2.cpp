@@ -15,7 +15,7 @@ bool ModulePlayer2::Start()
 {
 	LOG("Loading player2");
 
-	App->physics->Cannon2.x = 500;
+	App->physics->Cannon2.x = 430;
 	App->physics->Cannon2.y = 300;
 	App->physics->Cannon2.jumpv = 10;
 	App->physics->Cannon2.jumpa = 0;
@@ -31,6 +31,7 @@ bool ModulePlayer2::Start()
 
 	cannon2 = App->textures->Load("Graphics/Cannon2.png");
 	ball2 = App->textures->Load("Graphics/Ball2.png");
+	p1wins = ball2 = App->textures->Load("Graphics/p1wins.png");
 
 	Player2Rect.x = App->physics->Cannon2.x;
 	Player2Rect.y = App->physics->Cannon2.y;
@@ -88,27 +89,9 @@ update_status ModulePlayer2::Update()
 
 	App->physics->totalvelocity2 = sqrt(pow(App->physics->bullet2.vx, 2) + pow(App->physics->bullet2.vy, 2));
 
-	if (App->physics->bullet2.y >= App->physics->floor && App->physics->flying2 && (App->physics->bullet2.x <= 200 || App->physics->bullet2.x >= 400))
-	{
-		App->physics->bullet2.y = App->physics->floor;
-		App->physics->bounceVertical(&App->physics->bullet2);
-		App->audio->PlayFx(App->physics->bonk);
-		if ((App->physics->bullet2.x > (double)SCREEN_WIDTH || App->physics->bullet2.x < -25 || App->physics->totalvelocity2 < 125) && App->physics->flying2)
-		{
-			App->physics->flying2 = false;
-			App->physics->start2 = true;
-		}
-	}
+	
 
-	if (App->physics->bullet2.y >= App->physics->floor && App->physics->bullet2.x > 200 && App->physics->bullet2.x < 400 && App->physics->flying2)
-	{
-		App->physics->applyHydrodynamics(&App->physics->bullet2);
-		if (App->physics->bullet2.x > (double)SCREEN_WIDTH)
-		{
-			App->physics->flying2 = false;
-			App->physics->start2 = true;
-		}
-	}
+	
 
 
 	if (App->input->GetKey(SDL_SCANCODE_K) == KEY_DOWN)
@@ -231,14 +214,7 @@ update_status ModulePlayer2::Update()
 	}
 	LOG("-----------------------JUMPVAL IS %d", jumpVal2);
 
-	if (App->physics->Cannon2.x > 200 && App->physics->Cannon2.x < 400 && App->physics->Cannon2.y > 300) {
-		App->physics->applyHydrodynamics(&App->physics->Cannon2);
-		App->physics->Cannon2.Fy += hydroVar2;
-		if (hydroVar2 < App->physics->Cannon2.m * GRAVITY_) {
-			hydroVar2 += 2;
-		}
-
-	}
+	
 
 	switch (movOption2) {
 	case 0:
@@ -475,10 +451,10 @@ update_status ModulePlayer2::Update()
 			}
 
 			if (testPlayer2 == player2Status::STOP_PLAYER) {
-				App->physics->Cannon2.Fx = 30;
+				App->physics->Cannon2.Fx = 15;
 			}
 			else {
-				App->physics->Cannon2.Fx = 15;
+				App->physics->Cannon2.Fx = 7.5f;
 			}
 
 		}
@@ -490,10 +466,10 @@ update_status ModulePlayer2::Update()
 			}
 
 			if (testPlayer2 == player2Status::STOP_PLAYER) {
-				App->physics->Cannon2.Fx = -30;
+				App->physics->Cannon2.Fx = -15;
 			}
 			else {
-				App->physics->Cannon2.Fx = -15;
+				App->physics->Cannon2.Fx = -7.5f;
 			}
 
 		}
@@ -567,8 +543,6 @@ update_status ModulePlayer2::Update()
 	}
 
 
-
-
 	switch (testPlayer2)
 	{
 	case ModulePlayer2::STOP_PLAYER:
@@ -576,9 +550,7 @@ update_status ModulePlayer2::Update()
 		App->physics->Cannon2.jumpv = 30;
 		App->physics->Cannon2.jumpa = 0;
 		App->physics->Cannon2.vy = 0;
-		if (App->physics->Cannon2.x > 200 && App->physics->Cannon2.x < 400) {
-			testPlayer2 = player2Status::GRAVITY;
-		}
+		
 		break;
 	case ModulePlayer2::GRAVITY:
 		App->physics->applyWind(&App->physics->Cannon2);
@@ -590,12 +562,6 @@ update_status ModulePlayer2::Update()
 		if (App->physics->mode == 3)
 			App->physics->velocityVerlet(&App->physics->Cannon2);
 
-		if (App->physics->Cannon2.y >= 300 && (App->physics->Cannon2.x <= 200 || App->physics->Cannon2.x >= 400)) {
-			jumpOption2 = 7;
-			testPlayer2 = player2Status::STOP_PLAYER;
-			testJump2 = jump2Options::NO_JUMP;
-
-		}
 
 		break;
 	}
@@ -613,12 +579,16 @@ update_status ModulePlayer2::Update()
 		{
 			App->renderer->BlitMirror(cannon2, App->physics->Cannon2.x - 25, App->physics->Cannon2.y, NULL, NULL, (App->physics->angle2 - 180), 75, 25);
 		}
+		lifeBar2.x = App->physics->Cannon2.x;
+		lifeBar2.y = App->physics->Cannon2.y - 15;
+		App->renderer->DrawQuad(lifeBar2, 0, 255, 0, 255);
+	}
+	else {
+		App->renderer->Blit(p1wins, 0, 0, NULL);
 	}
 	
 
-	lifeBar2.x = App->physics->Cannon2.x;
-	lifeBar2.y = App->physics->Cannon2.y - 15;
-	App->renderer->DrawQuad(lifeBar2, 0, 255, 0, 255);
+	
 
 	// Debug draw
 
@@ -635,13 +605,94 @@ update_status ModulePlayer2::Update()
 		App->renderer->DrawQuad(bullet2Rect, 255, 0, 0, 80);
 	}
 
+	if (Collide2(Player2Rect, App->scene_intro->block1rect)) {
+		CollisionResolutionPlayer2(App->scene_intro->block1rect);
+	}
+	if (Collide2(Player2Rect, App->scene_intro->block2rect)) {
+		CollisionResolutionPlayer2(App->scene_intro->block2rect);
+	}
+	if (Collide2(Player2Rect, App->scene_intro->block3rect)) {
+		CollisionResolutionPlayer2(App->scene_intro->block3rect);
+	}
+	if (Collide2(Player2Rect, App->scene_intro->block4rect)) {
+		CollisionResolutionPlayer2(App->scene_intro->block4rect);
+	}
+	if (Collide2(Player2Rect, App->scene_intro->block5rect)) {
+		CollisionResolutionPlayer2(App->scene_intro->block5rect);
+	}
+
 	waitForDmg2++;
 	if (waitForDmg2 >= 60) {
 		canDmg2 = true;
 		waitForDmg2 = 0;
 	}
 
+	if (App->physics->Cannon2.y > 400) {
+		App->physics->Cannon2.y -= 25;
+	}
+	
+
+	if ((App->physics->bullet2.x > (double)SCREEN_WIDTH || App->physics->bullet2.y > (double)SCREEN_HEIGHT || App->physics->bullet2.x < -25) && App->physics->flying2) {
+		App->physics->flying2 = false;
+		App->physics->start2 = true;
+	}
+
 	return UPDATE_CONTINUE;
+}
+
+void ModulePlayer2::CollisionResolutionPlayer2(SDL_Rect& r) {
+	Vector2D objpos;
+	Vector2D rpos;
+	Vector2D diff;
+	objpos.x = App->physics->Cannon2.x;
+	objpos.y = App->physics->Cannon2.y;
+
+	rpos.x = r.x;
+	rpos.y = r.y;
+
+	diff.x = rpos.x - objpos.x;
+	diff.y = rpos.y - objpos.y;
+	int colWidth, colHeight;
+
+	// Calculate collision box
+	if (diff.x > 0) {
+		colWidth = Player2Rect.w - diff.x;
+	}
+	else {
+		colWidth = r.w + diff.x;
+	}
+
+
+	if (diff.y > 0) {
+		colHeight = Player2Rect.h - diff.y;
+	}
+	else {
+		colHeight = r.h + diff.y;
+	}
+
+	// Reposition object
+	if (colWidth < colHeight) {
+		// Reposition by X-axis
+		if (diff.x > 0) {
+			App->physics->Cannon2.x -= colWidth;
+		}
+		else {
+			App->physics->Cannon2.x += colWidth;
+		}
+
+		App->physics->Cannon2.vx = -App->physics->Cannon2.vx * 0.5f;
+	}
+
+
+}
+
+
+bool ModulePlayer2::Collide2(SDL_Rect& r, SDL_Rect& r2)
+{
+	return (r2.x < r.x + r.w &&
+		r2.x + r2.w > r.x &&
+		r2.y < r.y + r.h &&
+		r2.h + r2.y > r.y);
 }
 
 void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
@@ -653,5 +704,46 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 			canDmg2 = false;
 		}
 
+	}
+
+	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::FALL && testPlayer2 == player2Status::STOP_PLAYER) {
+		testPlayer2 = player2Status::GRAVITY;
+	}
+
+	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::SOLID_BODY && testPlayer2 == player2Status::GRAVITY) {
+		if (c1->rect.y < c2->rect.y) {
+			testPlayer2 = player2Status::STOP_PLAYER;
+			jumpOption2 = 7;
+			testJump2 = jump2Options::NO_JUMP;
+		}
+
+	}
+
+	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::LIQUID_BODY) {
+		App->physics->applyHydrodynamics(&App->physics->Cannon2);
+		testPlayer2 = player2Status::GRAVITY;
+	}
+
+	if (c1->type == Collider::Type::BULLET2 && c2->type == Collider::Type::SOLID_BODY) {
+		if (c1->rect.y < c2->rect.y) {
+
+			App->physics->bounceVertical(&App->physics->bullet2);
+			if ((App->physics->bullet2.x > (double)SCREEN_WIDTH || App->physics->bullet2.y > (double)SCREEN_HEIGHT || App->physics->bullet2.x < -25 || App->physics->totalvelocity2 < 125) && App->physics->flying2) {
+				App->physics->flying2 = false;
+				App->physics->start2 = true;
+			}
+		}
+		else if (c1->rect.y > c2->rect.y) {
+			App->physics->bounceHorizontal(&App->physics->bullet2);
+		}
+	}
+	else if (c1->type == Collider::Type::BULLET2 && c2->type == Collider::Type::LIQUID_BODY && App->physics->flying2 == true) {
+		App->physics->applyHydrodynamics(&App->physics->bullet2);
+
+		if (App->physics->bullet2.x > (double)SCREEN_WIDTH)
+		{
+			App->physics->flying2 = false;
+			App->physics->start2 = true;
+		}
 	}
 }

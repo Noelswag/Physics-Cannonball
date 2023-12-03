@@ -23,9 +23,16 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void ModulePlayer::OnCollision(Collider* c1, Collider* c2);
+	// Collision Resolution
+	void CollisionResolutionPlayer(SDL_Rect& r);
+	// Collide
+	bool Collide(SDL_Rect& r, SDL_Rect& r2);
+
 	SDL_Texture* cannon = nullptr;
 
 	SDL_Texture* ball = nullptr;
+
+	SDL_Texture* p2wins = nullptr;
 
 	bool front = true;
 
@@ -47,7 +54,6 @@ public:
 
 	SDL_Rect lifeBar;
 
-	bool canMove = true;
 
 	enum movementOptions
 	{
