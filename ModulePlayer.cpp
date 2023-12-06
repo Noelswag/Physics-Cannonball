@@ -17,7 +17,8 @@ bool ModulePlayer::Start()
 
 	App->physics->Cannon.x = 150;
 	App->physics->Cannon.y = 315;
-	App->physics->Cannon.jumpv = 10;
+	App->physics->Cannon.vx = 5;
+	App->physics->Cannon.jumpv = 5;
 	App->physics->Cannon.jumpa = 0;
 	App->physics->Cannon.ax = 2;
 	App->physics->Cannon.m = 100;
@@ -89,27 +90,7 @@ update_status ModulePlayer::Update()
 
 	App->physics->totalvelocity = sqrt(pow(App->physics->bullet.vx, 2) + pow(App->physics->bullet.vy, 2));
 
-	/*if (App->physics->bullet.y >= App->physics->floor && App->physics->flying && (App->physics->bullet.x <= 200 || App->physics->bullet.x >= 400))
-	{
-		App->physics->bullet.y = App->physics->floor;
-		App->physics->bounceVertical(&App->physics->bullet);
-		App->audio->PlayFx(App->physics->bonk);
-		if ((App->physics->bullet.x > (double)SCREEN_WIDTH || App->physics->bullet.x < -25 || App->physics->totalvelocity < 125) && App->physics->flying)
-		{
-			App->physics->flying = false;
-			App->physics->start = true;
-		}
-	}*/
-
-	/*if (App->physics->bullet.y >= 380 && App->physics->bullet.x > 260 && App->physics->bullet.x < 380 && App->physics->flying)
-	{
-		App->physics->applyHydrodynamics(&App->physics->bullet);
-		if (App->physics->bullet.x > (double)SCREEN_WIDTH)
-		{
-			App->physics->flying = false;
-			App->physics->start = true;
-		}
-	}*/
+	
 
 
 	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
@@ -334,6 +315,7 @@ update_status ModulePlayer::Update()
 		}
 		break;
 	case ModulePhysics::FIXVEL:
+		App->physics->Cannon.vx = 5;
 		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && App->physics->angle <= 0) {
 			
 
@@ -365,6 +347,23 @@ update_status ModulePlayer::Update()
 		}
 		break;
 	case ModulePhysics::FIXACC:
+
+		if (Collide(PlayerRect, App->scene_intro->block1rect)) {
+			App->physics->Cannon.vx = 5;
+		}
+		if (Collide(PlayerRect, App->scene_intro->block2rect)) {
+			App->physics->Cannon.vx = 5;
+		}
+		if (Collide(PlayerRect, App->scene_intro->block3rect)) {
+			App->physics->Cannon.vx = 5;
+		}
+		if (Collide(PlayerRect, App->scene_intro->block4rect)) {
+			App->physics->Cannon.vx = 5;
+		}
+		if (Collide(PlayerRect, App->scene_intro->block5rect)) {
+			App->physics->Cannon.vx = 5;
+		}
+
 		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && App->physics->angle <= 0) {
 			
 			if (!front)
@@ -380,14 +379,6 @@ update_status ModulePlayer::Update()
 		}
 
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && App->physics->angle <= 0) {
-			if (App->physics->Cannon.vx > 0) {
-				App->physics->Cannon.x -= App->physics->Cannon.vx;
-			}
-			else {
-				App->physics->Cannon.x += App->physics->Cannon.vx;
-			}
-
-			App->physics->Cannon.vx -= App->physics->Cannon.ax;
 			
 
 			if (front)
@@ -409,6 +400,29 @@ update_status ModulePlayer::Update()
 		}
 		break;
 	case ModulePhysics::MOMENTUM:
+		
+		break;
+	case ModulePhysics::IMPULSE:
+
+		break;
+	case ModulePhysics::ACCELERATION:
+
+		if (Collide(PlayerRect, App->scene_intro->block1rect)) {
+			App->physics->Cannon.vx = 5;
+		}
+		if (Collide(PlayerRect, App->scene_intro->block2rect)) {
+			App->physics->Cannon.vx = 5;
+		}
+		if (Collide(PlayerRect, App->scene_intro->block3rect)) {
+			App->physics->Cannon.vx = 5;
+		}
+		if (Collide(PlayerRect, App->scene_intro->block4rect)) {
+			App->physics->Cannon.vx = 5;
+		}
+		if (Collide(PlayerRect, App->scene_intro->block5rect)) {
+			App->physics->Cannon.vx = 5;
+		}
+
 		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && App->physics->angle <= 0) {
 
 			if (!front)
@@ -420,18 +434,11 @@ update_status ModulePlayer::Update()
 			{
 				App->physics->Cannon.x += App->physics->Cannon.vx;
 				App->physics->Cannon.vx += App->physics->Cannon.ax;
+				App->physics->Cannon.ax += 0.5;
 			}
 		}
 
 		if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && App->physics->angle <= 0) {
-			if (App->physics->Cannon.vx > 0) {
-				App->physics->Cannon.x -= App->physics->Cannon.vx;
-			}
-			else {
-				App->physics->Cannon.x += App->physics->Cannon.vx;
-			}
-
-			App->physics->Cannon.vx -= App->physics->Cannon.ax;
 
 
 			if (front)
@@ -449,14 +456,9 @@ update_status ModulePlayer::Update()
 				}
 
 				App->physics->Cannon.vx -= App->physics->Cannon.ax;
+				App->physics->Cannon.ax += 0.5;
 			}
 		}
-		
-		break;
-	case ModulePhysics::IMPULSE:
-
-		break;
-	case ModulePhysics::ACCELERATION:
 		break;
 	case ModulePhysics::FORCE:
 		if (App->input->GetKey(SDL_SCANCODE_D) == KEY_UP || App->input->GetKey(SDL_SCANCODE_A) == KEY_UP) {
@@ -529,7 +531,7 @@ update_status ModulePlayer::Update()
 			break;
 		case ModulePlayer::JUMPACC:
 			App->physics->Cannon.y -= App->physics->Cannon.jumpv;
-			App->physics->Cannon.jumpv -= GRAVITY_;
+			App->physics->Cannon.jumpv += 0.1f;
 			testPlayer = playerStatus::GRAVITY;
 			break;
 		case ModulePlayer::JUMP_MOMENTUM:
@@ -537,11 +539,12 @@ update_status ModulePlayer::Update()
 		case ModulePlayer::JUMP_IMPULSE:
 			break;
 		case ModulePlayer::JUMP_ACCELERATION:
-			if (App->physics->Cannon.jumpa < 2) {
-				App->physics->Cannon.jumpa += 0.1;
+			if (App->physics->Cannon.jumpa < 0.15) {
+				App->physics->Cannon.jumpa += 0.01;
 			}
-			App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
 			App->physics->Cannon.y -= App->physics->Cannon.jumpv;
+			App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
+			
 
 			testPlayer = playerStatus::GRAVITY;
 			break;
@@ -549,9 +552,7 @@ update_status ModulePlayer::Update()
 			if (testPlayer == playerStatus::STOP_PLAYER) {
 				App->physics->Cannon.vy = -300;
 			}
-			//App->physics->Cannon.jumpa = App->physics->Cannon.force / App->physics->Cannon.m;
-			//App->physics->Cannon.jumpv += App->physics->Cannon.jumpa;
-			//App->physics->Cannon.y -= App->physics->Cannon.jumpv;
+			
 			testPlayer = playerStatus::GRAVITY;
 			break;
 		case ModulePlayer::NO_JUMP:
@@ -567,7 +568,7 @@ update_status ModulePlayer::Update()
 	{
 	case ModulePlayer::STOP_PLAYER:
 		//App->physics->Cannon.vy = 5;
-		App->physics->Cannon.jumpv = 30;
+		App->physics->Cannon.jumpv = 5;
 		App->physics->Cannon.jumpa = 0;
 		App->physics->Cannon.vy = 0;
 		

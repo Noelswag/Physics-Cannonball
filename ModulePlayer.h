@@ -54,6 +54,8 @@ public:
 
 	SDL_Rect lifeBar;
 
+	
+
 
 	enum movementOptions
 	{

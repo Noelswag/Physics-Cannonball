@@ -16,6 +16,7 @@ bool ModulePlayer2::Start()
 	LOG("Loading player2");
 
 	App->physics->Cannon2.x = 430;
+	App->physics->Cannon2.vx = 5;
 	App->physics->Cannon2.y = 300;
 	App->physics->Cannon2.jumpv = 10;
 	App->physics->Cannon2.jumpa = 0;
@@ -315,6 +316,7 @@ update_status ModulePlayer2::Update()
 		}
 		break;
 	case ModulePhysics::FIXVEL:
+		App->physics->Cannon2.vx = 5;
 		if (App->input->GetKey(SDL_SCANCODE_L) == KEY_REPEAT && App->physics->angle2 <= 0) {
 
 
@@ -346,6 +348,23 @@ update_status ModulePlayer2::Update()
 		}
 		break;
 	case ModulePhysics::FIXACC:
+
+		if (Collide2(Player2Rect, App->scene_intro->block1rect)) {
+			App->physics->Cannon2.vx = 5;
+		}
+		if (Collide2(Player2Rect, App->scene_intro->block2rect)) {
+			App->physics->Cannon2.vx = 5;
+		}
+		if (Collide2(Player2Rect, App->scene_intro->block3rect)) {
+			App->physics->Cannon2.vx = 5;
+		}
+		if (Collide2(Player2Rect, App->scene_intro->block4rect)) {
+			App->physics->Cannon2.vx = 5;
+		}
+		if (Collide2(Player2Rect, App->scene_intro->block5rect)) {
+			App->physics->Cannon2.vx = 5;
+		}
+
 		if (App->input->GetKey(SDL_SCANCODE_L) == KEY_REPEAT && App->physics->angle2 <= 0) {
 
 			if (!front2)
@@ -361,14 +380,6 @@ update_status ModulePlayer2::Update()
 		}
 
 		if (App->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT && App->physics->angle2 <= 0) {
-			if (App->physics->Cannon2.vx > 0) {
-				App->physics->Cannon2.x -= App->physics->Cannon2.vx;
-			}
-			else {
-				App->physics->Cannon2.x += App->physics->Cannon2.vx;
-			}
-
-			App->physics->Cannon2.vx -= App->physics->Cannon2.ax;
 
 
 			if (front2)
@@ -390,6 +401,29 @@ update_status ModulePlayer2::Update()
 		}
 		break;
 	case ModulePhysics::MOMENTUM:
+		
+
+		break;
+	case ModulePhysics::IMPULSE:
+
+		break;
+	case ModulePhysics::ACCELERATION:
+		if (Collide2(Player2Rect, App->scene_intro->block1rect)) {
+			App->physics->Cannon2.vx = 5;
+		}
+		if (Collide2(Player2Rect, App->scene_intro->block2rect)) {
+			App->physics->Cannon2.vx = 5;
+		}
+		if (Collide2(Player2Rect, App->scene_intro->block3rect)) {
+			App->physics->Cannon2.vx = 5;
+		}
+		if (Collide2(Player2Rect, App->scene_intro->block4rect)) {
+			App->physics->Cannon2.vx = 5;
+		}
+		if (Collide2(Player2Rect, App->scene_intro->block5rect)) {
+			App->physics->Cannon2.vx = 5;
+		}
+
 		if (App->input->GetKey(SDL_SCANCODE_L) == KEY_REPEAT && App->physics->angle2 <= 0) {
 
 			if (!front2)
@@ -397,22 +431,15 @@ update_status ModulePlayer2::Update()
 				front2 = true;
 				App->physics->angle2 = -180 - App->physics->angle2;
 			}
-			if (App->physics->Cannon2.x < SCREEN_WIDTH)
+			if (App->physics->Cannon2.x < SCREEN_WIDTH - 101)
 			{
 				App->physics->Cannon2.x += App->physics->Cannon2.vx;
 				App->physics->Cannon2.vx += App->physics->Cannon2.ax;
+				App->physics->Cannon2.ax += 0.5;
 			}
 		}
 
 		if (App->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT && App->physics->angle2 <= 0) {
-			if (App->physics->Cannon2.vx > 0) {
-				App->physics->Cannon2.x -= App->physics->Cannon2.vx;
-			}
-			else {
-				App->physics->Cannon2.x += App->physics->Cannon2.vx;
-			}
-
-			App->physics->Cannon2.vx -= App->physics->Cannon2.ax;
 
 
 			if (front2)
@@ -430,14 +457,9 @@ update_status ModulePlayer2::Update()
 				}
 
 				App->physics->Cannon2.vx -= App->physics->Cannon2.ax;
+				App->physics->Cannon2.ax += 0.5;
 			}
 		}
-
-		break;
-	case ModulePhysics::IMPULSE:
-
-		break;
-	case ModulePhysics::ACCELERATION:
 		break;
 	case ModulePhysics::FORCE:
 		if (App->input->GetKey(SDL_SCANCODE_L) == KEY_UP || App->input->GetKey(SDL_SCANCODE_J) == KEY_UP) {
@@ -519,11 +541,12 @@ update_status ModulePlayer2::Update()
 	case ModulePlayer2::JUMP_IMPULSE:
 		break;
 	case ModulePlayer2::JUMP_ACCELERATION:
-		if (App->physics->Cannon2.jumpa < 2) {
-			App->physics->Cannon2.jumpa += 0.1;
+		if (App->physics->Cannon2.jumpa < 0.15) {
+			App->physics->Cannon2.jumpa += 0.01;
 		}
-		App->physics->Cannon2.jumpv += App->physics->Cannon2.jumpa;
+		
 		App->physics->Cannon2.y -= App->physics->Cannon2.jumpv;
+		App->physics->Cannon2.jumpv += App->physics->Cannon2.jumpa;
 
 		testPlayer2 = player2Status::GRAVITY;
 		break;
@@ -547,7 +570,7 @@ update_status ModulePlayer2::Update()
 	{
 	case ModulePlayer2::STOP_PLAYER:
 		//App->physics->Cannon.vy = 5;
-		App->physics->Cannon2.jumpv = 30;
+		App->physics->Cannon2.jumpv = 5;
 		App->physics->Cannon2.jumpa = 0;
 		App->physics->Cannon2.vy = 0;
 		
