@@ -27,8 +27,8 @@ bool ModulePlayer::Start()
 	App->physics->Cannon.volumen = 200.0f;
 	App->physics->Cannon.Cd = 0.47f;
 
-	App->physics->applyGravity(&App->physics->Cannon);
-	App->physics->applyAerodynamics(&App->physics->Cannon);
+	//App->physics->applyGravity(&App->physics->Cannon);
+	//App->physics->applyAerodynamics(&App->physics->Cannon);
 	
 
 	cannon = App->textures->Load("Graphics/Cannon2.png");
@@ -168,8 +168,13 @@ update_status ModulePlayer::Update()
 
 	App->window->SetTitle(App->physics->titletext);
 
-
-	App->physics->resetForces(&App->physics->bullet);
+	if (App->physics->gravityActive) {
+		App->physics->resetForces(&App->physics->bullet);
+	}
+	else {
+		App->physics->bullet.Fy = 0;
+	}
+	
 
 	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
 	{
@@ -581,12 +586,13 @@ update_status ModulePlayer::Update()
 	case ModulePlayer::GRAVITY:
 		
 		
-		if (App->physics->mode == 1)
-			App->physics->euler(&App->physics->Cannon);
-		if (App->physics->mode == 2)
-			App->physics->eulerSympletic(&App->physics->Cannon);
-		if (App->physics->mode == 3)
-			App->physics->velocityVerlet(&App->physics->Cannon);
+			if (App->physics->mode == 1)
+				App->physics->euler(&App->physics->Cannon);
+			if (App->physics->mode == 2)
+				App->physics->eulerSympletic(&App->physics->Cannon);
+			if (App->physics->mode == 3)
+				App->physics->velocityVerlet(&App->physics->Cannon);
+
 		
 		break;
 	}
@@ -650,9 +656,12 @@ update_status ModulePlayer::Update()
 		waitForDmg = 0;
 	}
 
-	if (App->physics->Cannon.y > 400) {
-		App->physics->Cannon.y -= 25;
+	if (App->physics->buoyancyActive) {
+		if (App->physics->Cannon.y > 400) {
+			App->physics->Cannon.y -= 25;
+		}
 	}
+	
 	
 
 	if ((App->physics->bullet.x > (double)SCREEN_WIDTH || App->physics->bullet.y > (double)SCREEN_HEIGHT || App->physics->bullet.x < -25 ) && App->physics->flying) {
@@ -660,7 +669,13 @@ update_status ModulePlayer::Update()
 		App->physics->start = true;
 	}
 
-	App->physics->resetForces(&App->physics->Cannon);
+	if (App->physics->gravityActive) {
+		App->physics->resetForces(&App->physics->Cannon);
+	}
+	else {
+		App->physics->Cannon.Fy = 0;
+	}
+	
 
 	return UPDATE_CONTINUE;
 }
@@ -747,7 +762,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 	
 
 	if (c1->type == Collider::Type::PLAYER1 && c2->type == Collider::Type::LIQUID_BODY) {
-		App->physics->applyHydrodynamics(&App->physics->Cannon);
+		if (App->physics->buoyancyActive) {
+			App->physics->applyHydrodynamics(&App->physics->Cannon);
+		}
+		
 		testPlayer = playerStatus::GRAVITY;
 	}
 
@@ -765,7 +783,10 @@ void ModulePlayer::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 	else if (c1->type == Collider::Type::BULLET1 && c2->type == Collider::Type::LIQUID_BODY && App->physics->flying == true) {
-		App->physics->applyHydrodynamics(&App->physics->bullet);
+		if (App->physics->buoyancyActive) {
+			App->physics->applyHydrodynamics(&App->physics->bullet);
+		}
+		
 		
 		if (App->physics->bullet.x > (double)SCREEN_WIDTH)
 		{

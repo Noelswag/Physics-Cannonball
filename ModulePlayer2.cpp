@@ -170,8 +170,13 @@ update_status ModulePlayer2::Update()
 
 	//App->window->SetTitle(App->physics->titletext);
 
-
-	App->physics->resetForces(&App->physics->bullet2);
+	if (App->physics->gravityActive) {
+		App->physics->resetForces(&App->physics->bullet2);
+	}
+	else {
+		App->physics->bullet2.Fy = 0;
+	}
+	
 
 	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT)
 	{
@@ -594,7 +599,13 @@ update_status ModulePlayer2::Update()
 		break;
 	}
 
-	App->physics->resetForces(&App->physics->Cannon2);
+	if (App->physics->gravityActive) {
+		App->physics->resetForces(&App->physics->Cannon2);
+	}
+	else {
+		App->physics->Cannon2.Fy = 0;
+	}
+	
 
 
 	if (life2 > 0) {
@@ -655,9 +666,12 @@ update_status ModulePlayer2::Update()
 		waitForDmg2 = 0;
 	}
 
-	if (App->physics->Cannon2.y > 400) {
-		App->physics->Cannon2.y -= 25;
+	if (App->physics->buoyancyActive) {
+		if (App->physics->Cannon2.y > 400) {
+			App->physics->Cannon2.y -= 25;
+		}
 	}
+	
 	
 
 	if ((App->physics->bullet2.x > (double)SCREEN_WIDTH || App->physics->bullet2.y > (double)SCREEN_HEIGHT || App->physics->bullet2.x < -25) && App->physics->flying2) {
@@ -750,7 +764,10 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 	}
 
 	if (c1->type == Collider::Type::PLAYER2 && c2->type == Collider::Type::LIQUID_BODY) {
-		App->physics->applyHydrodynamics(&App->physics->Cannon2);
+		if (App->physics->buoyancyActive) {
+			App->physics->applyHydrodynamics(&App->physics->Cannon2);
+		}
+		
 		testPlayer2 = player2Status::GRAVITY;
 	}
 
@@ -768,7 +785,10 @@ void ModulePlayer2::OnCollision(Collider* c1, Collider* c2)
 		}
 	}
 	else if (c1->type == Collider::Type::BULLET2 && c2->type == Collider::Type::LIQUID_BODY && App->physics->flying2 == true) {
-		App->physics->applyHydrodynamics(&App->physics->bullet2);
+		if (App->physics->buoyancyActive) {
+			App->physics->applyHydrodynamics(&App->physics->bullet2);
+		}
+		
 
 		if (App->physics->bullet2.x > (double)SCREEN_WIDTH)
 		{

@@ -186,6 +186,12 @@ update_status ModulePhysics::PostUpdate()
 		windActive = !windActive;
 	}
 	
+	if (App->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN) {
+		gravityActive = !gravityActive;
+	}
+	if (App->input->GetKey(SDL_SCANCODE_F11) == KEY_DOWN) {
+		buoyancyActive = !buoyancyActive;
+	}
 	
 
 	return UPDATE_CONTINUE;

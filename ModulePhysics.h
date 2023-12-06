@@ -71,6 +71,8 @@ public:
 	bool debug = false;
 
 	bool windActive = true;
+	bool gravityActive = true;
+	bool buoyancyActive = true;
 
 	enum movementOptions
 	{
