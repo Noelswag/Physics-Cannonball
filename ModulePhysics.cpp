@@ -171,6 +171,15 @@ update_status ModulePhysics::PostUpdate()
 
 	/*if(!debug)
 		return UPDATE_CONTINUE;*/
+	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN) {
+		if (App->VariableFrame == true) {
+			App->VariableFrame = false;
+		}
+		else {
+			App->VariableFrame = true;
+		}
+
+	}
 	
 	
 

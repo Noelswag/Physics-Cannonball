@@ -80,6 +80,8 @@ update_status Application::Update()
 	update_status ret = UPDATE_CONTINUE;
 	p2List_item<Module*>* item = list_modules.getFirst();
 
+	PrepareUpdate();
+
 	while(item != NULL && ret == UPDATE_CONTINUE)
 	{
 		if(item->data->IsEnabled())
@@ -105,8 +107,47 @@ update_status Application::Update()
 		item = item->next;
 	}
 
+	FinishUpdate();
 	return ret;
 }
+
+void Application::PrepareUpdate()
+{
+	frameTime.Start();
+}
+
+void Application::FinishUpdate()
+{
+	if (VariableFrame == false) {
+		double currentDt = frameTime.ReadMs();
+		LOG("--------------------currentDt: %f", currentDt);
+		if (maxFrameDuration > 0 && currentDt < maxFrameDuration && currentDt < maxDtDuration) {
+			TotalDt += currentDt;
+			if (TotalDt < maxFrameDuration) {
+				Update();
+			}
+			uint32 delay = maxDtDuration - currentDt;
+
+			SDL_Delay(delay);
+
+		}
+		LOG("USING SEMI-FIXED DELTA TIME");
+	}
+	else {
+		double currentDt = frameTime.ReadMs();
+		LOG("--------------------currentDt: %f", currentDt);
+		if (maxFrameDuration > 0 && currentDt < maxFrameDuration) {
+			uint32 delay = maxFrameDuration - currentDt;
+
+			SDL_Delay(delay);
+
+		}
+		LOG("USING VARIABLE DELTA TIME");
+	}
+
+
+}
+
 
 bool Application::CleanUp()
 {

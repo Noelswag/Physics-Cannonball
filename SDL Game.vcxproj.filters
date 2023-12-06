@@ -68,6 +68,12 @@
     <ClInclude Include="ModulePlayer2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PerfTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Defs.h">
+      <Filter>Header Files\Containers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -113,6 +119,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ModulePlayer2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PerfTimer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

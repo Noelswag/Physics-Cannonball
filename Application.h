@@ -15,6 +15,7 @@
 #include "ModuleSceneIntro.h"
 #include "Airdrop.h"
 #include "ModuleCollisions.h"
+#include "PerfTimer.h"
 
 class Application
 {
@@ -35,14 +36,24 @@ private:
 
 	p2List<Module*> list_modules;
 
+	PerfTimer frameTime;
+
+	uint32 maxFrameDuration = 16;
+	float maxDtDuration = 4;
+	float TotalDt = 0;
+
 public:
 
 	Application();
 	~Application();
 
 	bool Init();
+	void PrepareUpdate();
 	update_status Update();
+	void FinishUpdate();
 	bool CleanUp();
+
+	bool VariableFrame = true;
 
 private:
 
