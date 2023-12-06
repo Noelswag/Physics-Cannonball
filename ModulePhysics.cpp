@@ -80,7 +80,7 @@ void ModulePhysics::applyHydrodynamics(player* entity)
 
 void ModulePhysics::applyWind(player* entity)
 {
-	entity->Fx += -(density * entity->surface * windx * windx * entity->Cd) / 2;
+	entity->Fx += (density * entity->surface * windx * windx * entity->Cd) / 2;
 
 }
 
@@ -97,6 +97,7 @@ void ModulePhysics::applyAerodynamics(player* entity)
 void ModulePhysics::resetForces(player* entity)
 {
 	applyGravity(entity);
+	
 	
 }
 
@@ -123,7 +124,7 @@ bool ModulePhysics::Start()
 	power2 = 350;
 	angle2 = -45;
 
-	windx = 0.0f;
+	windx = 1.0f;
 	windy = -1.0f;
 	density = 0.7f;
 	densityW = 1.0f;
@@ -131,14 +132,14 @@ bool ModulePhysics::Start()
 	bullet.Cd = 0.47f;
 	bullet.x = 999;
 	bullet.y = (double)floor - 999;
-	bullet.surface = 10.0f;
+	bullet.surface = 25.0f;
 	bullet.volumen = 100.0f;
 	bullet.m = 50;
 
 	bullet2.Cd = 0.47f;
 	bullet2.x = 999;
 	bullet2.y = (double)floor - 999;
-	bullet2.surface = 10.0f;
+	bullet2.surface = 25.0f;
 	bullet2.volumen = 100.0f;
 	bullet2.m = 50;
 
@@ -169,8 +170,7 @@ update_status ModulePhysics::PostUpdate()
 	if(App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 		debug = !debug;
 
-	/*if(!debug)
-		return UPDATE_CONTINUE;*/
+	// Change Framerate option
 	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN) {
 		if (App->VariableFrame == true) {
 			App->VariableFrame = false;
@@ -179,6 +179,11 @@ update_status ModulePhysics::PostUpdate()
 			App->VariableFrame = true;
 		}
 
+	}
+
+	// Enable / Disable Forces
+	if (App->input->GetKey(SDL_SCANCODE_F9) == KEY_DOWN) {
+		windActive = !windActive;
 	}
 	
 	

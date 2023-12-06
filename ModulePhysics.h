@@ -70,7 +70,7 @@ public:
 	
 	bool debug = false;
 
-	
+	bool windActive = true;
 
 	enum movementOptions
 	{

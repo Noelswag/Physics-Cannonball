@@ -23,8 +23,9 @@ bool ModulePlayer::Start()
 	App->physics->Cannon.ax = 2;
 	App->physics->Cannon.m = 100;
 	App->physics->Cannon.force = -50;
-	App->physics->Cannon.surface = 20;
+	App->physics->Cannon.surface = 50;
 	App->physics->Cannon.volumen = 200.0f;
+	App->physics->Cannon.Cd = 0.47f;
 
 	App->physics->applyGravity(&App->physics->Cannon);
 	App->physics->applyAerodynamics(&App->physics->Cannon);
@@ -97,6 +98,7 @@ update_status ModulePlayer::Update()
 	{
 		if (App->physics->start)
 		{
+			App->physics->bullet.Fx = 0;
 			App->physics->start = false;
 			App->physics->flying = true;
 
@@ -121,8 +123,10 @@ update_status ModulePlayer::Update()
 
 	if (App->physics->flying)
 	{
-
-		App->physics->applyWind(&App->physics->bullet);
+		if (App->physics->windActive) {
+			App->physics->applyWind(&App->physics->bullet);
+		}
+		
 
 		if (App->physics->mode == 1)
 			App->physics->euler(&App->physics->bullet);
@@ -572,9 +576,10 @@ update_status ModulePlayer::Update()
 		App->physics->Cannon.jumpa = 0;
 		App->physics->Cannon.vy = 0;
 		
+		
 		break;
 	case ModulePlayer::GRAVITY:
-		App->physics->applyWind(&App->physics->Cannon);
+		
 		
 		if (App->physics->mode == 1)
 			App->physics->euler(&App->physics->Cannon);

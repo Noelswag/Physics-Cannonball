@@ -47,6 +47,7 @@ public:
 
 	SDL_Rect lifeBar2;
 
+
 	enum movement2Options
 	{
 		MOVX,
