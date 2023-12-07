@@ -74,6 +74,21 @@ public:
 	bool gravityActive = true;
 	bool buoyancyActive = true;
 
+	SDL_Texture* gravity;
+	SDL_Texture* wind;
+	SDL_Texture* buoyancy;
+	SDL_Texture* framerate;
+	SDL_Texture* r1;
+	SDL_Texture* r2;
+	SDL_Texture* r3;
+	SDL_Texture* r4;
+	SDL_Texture* r5;
+	SDL_Texture* r6;
+	SDL_Texture* active;
+	SDL_Texture* inactive;
+	SDL_Texture* move;
+	SDL_Texture* jump;
+
 	enum movementOptions
 	{
 		MOVX,

@@ -208,7 +208,7 @@ update_status ModulePlayer::Update()
 	}
 	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN) {
 		movOption++;
-		if (movOption > 6) {
+		if (movOption > 4) {
 			movOption = 0;
 		}
 	}
@@ -216,41 +216,56 @@ update_status ModulePlayer::Update()
 	if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN) {
 		jumpVal++;
 
-		if (jumpVal > 7) {
+		if (jumpVal > 5) {
 			jumpVal = 0;
 		}
 	}
 	LOG("-----------------------JUMPVAL IS %d", jumpVal);
 
+	if (jumpVal == 0) {
+		App->renderer->Blit(App->physics->r1, 97, 110, NULL);
+	}
+	else if (jumpVal == 1) {
+		App->renderer->Blit(App->physics->r2, 97, 110, NULL);
+	}
+	else if (jumpVal == 2) {
+		App->renderer->Blit(App->physics->r3, 97, 110, NULL);
+	}
+	else if (jumpVal == 3) {
+		App->renderer->Blit(App->physics->r4, 97, 110, NULL);
+	}
+	else if (jumpVal == 4) {
+		App->renderer->Blit(App->physics->r5, 97, 110, NULL);
+	}
+	else if (jumpVal == 5) {
+		App->renderer->Blit(App->physics->inactive, 97, 110, NULL);
+	}
 	
 
 	switch (movOption) {
 	case 0:
 		test = movementOptions::MOVX;
+		App->renderer->Blit(App->physics->r1, 97, 90, NULL);
 		LOG("--------------------USING MOVX");
 		break;
 	case 1:
 		test = movementOptions::FIXVEL;
+		App->renderer->Blit(App->physics->r2, 97, 90, NULL);
 		LOG("--------------------USING FIXVEL");
 		break;
 	case 2:
 		test = movementOptions::FIXACC;
+		App->renderer->Blit(App->physics->r3, 97, 90, NULL);
 		LOG("--------------------USING FIXACC");
 		break;
 	case 3:
-		test = movementOptions::MOMENTUM;
-		LOG("--------------------USING MOMENTUM");
-		break;
-	case 4:
-		test = movementOptions::IMPULSE;
-		LOG("--------------------USING IMPULSE");
-		break;
-	case 5:
 		test = movementOptions::ACCELERATION;
+		App->renderer->Blit(App->physics->r4, 97, 90, NULL);
 		LOG("--------------------USING ACCELERATION");
 		break;
-	case 6:
+	case 4:
 		test = movementOptions::FORCE;
+		App->renderer->Blit(App->physics->r5, 97, 90, NULL);
 		LOG("--------------------USING FORCE");
 		break;
 
@@ -270,22 +285,14 @@ update_status ModulePlayer::Update()
 		LOG("--------------------USING FIXACC FOR JUMP");
 		break;
 	case 3:
-		testJump = jumpOptions::JUMP_MOMENTUM;
-		LOG("--------------------USING MOMENTUM FOR JUMP");
-		break;
-	case 4:
-		testJump = jumpOptions::JUMP_IMPULSE;
-		LOG("--------------------USING IMPULSE FOR JUMP");
-		break;
-	case 5:
 		testJump = jumpOptions::JUMP_ACCELERATION;
 		LOG("--------------------USING ACCELERATION FOR JUMP");
 		break;
-	case 6:
+	case 4:
 		testJump = jumpOptions::JUMP_FORCE;
 		LOG("--------------------USING FORCE FOR JUMP");
 		break;
-	case 7:
+	case 5:
 		testJump = jumpOptions::NO_JUMP;
 		LOG("--------------------NO JUMPING");
 		break;
@@ -407,12 +414,6 @@ update_status ModulePlayer::Update()
 				App->physics->Cannon.vx -= App->physics->Cannon.ax;
 			}
 		}
-		break;
-	case ModulePhysics::MOMENTUM:
-		
-		break;
-	case ModulePhysics::IMPULSE:
-
 		break;
 	case ModulePhysics::ACCELERATION:
 
@@ -542,10 +543,6 @@ update_status ModulePlayer::Update()
 			App->physics->Cannon.y -= App->physics->Cannon.jumpv;
 			App->physics->Cannon.jumpv += 0.1f;
 			testPlayer = playerStatus::GRAVITY;
-			break;
-		case ModulePlayer::JUMP_MOMENTUM:
-			break;
-		case ModulePlayer::JUMP_IMPULSE:
 			break;
 		case ModulePlayer::JUMP_ACCELERATION:
 			if (App->physics->Cannon.jumpa < 0.15) {

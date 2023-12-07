@@ -409,13 +409,6 @@ update_status ModulePlayer2::Update()
 			}
 		}
 		break;
-	case ModulePhysics::MOMENTUM:
-		
-
-		break;
-	case ModulePhysics::IMPULSE:
-
-		break;
 	case ModulePhysics::ACCELERATION:
 		if (Collide2(Player2Rect, App->scene_intro->block1rect)) {
 			App->physics->Cannon2.vx = 5;
@@ -544,10 +537,6 @@ update_status ModulePlayer2::Update()
 		App->physics->Cannon2.y -= App->physics->Cannon2.jumpv;
 		App->physics->Cannon2.jumpv -= GRAVITY_;
 		testPlayer2 = player2Status::GRAVITY;
-		break;
-	case ModulePlayer::JUMP_MOMENTUM:
-		break;
-	case ModulePlayer2::JUMP_IMPULSE:
 		break;
 	case ModulePlayer2::JUMP_ACCELERATION:
 		if (App->physics->Cannon2.jumpa < 0.15) {

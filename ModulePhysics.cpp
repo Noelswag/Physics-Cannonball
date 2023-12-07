@@ -152,6 +152,21 @@ bool ModulePhysics::Start()
 	bonk = App->audio->LoadFx("Sound/bonk.wav");
 	boom = App->audio->LoadFx("Sound/boom.wav");
 
+	gravity = App->textures->Load("Graphics/GravityCartel.png");
+	wind = App->textures->Load("Graphics/WindCartel.png");
+	buoyancy = App->textures->Load("Graphics/BuoyancyCartel.png");
+	framerate = App->textures->Load("Graphics/FramerateCartel.png");
+	r1 = App->textures->Load("Graphics/1.png");
+	r2 = App->textures->Load("Graphics/2.png");
+	r3 = App->textures->Load("Graphics/3.png");
+	r4 = App->textures->Load("Graphics/4.png");
+	r5 = App->textures->Load("Graphics/5.png");
+	r6 = App->textures->Load("Graphics/6.png");
+	active = App->textures->Load("Graphics/Active.png");
+	inactive = App->textures->Load("Graphics/InActive.png");
+	move = App->textures->Load("Graphics/MovementCartel.png");
+	jump = App->textures->Load("Graphics/JumpCartel.png");
+
 
 	
 
@@ -192,6 +207,46 @@ update_status ModulePhysics::PostUpdate()
 	if (App->input->GetKey(SDL_SCANCODE_F11) == KEY_DOWN) {
 		buoyancyActive = !buoyancyActive;
 	}
+
+	// Draw Debug Modes in Screen
+
+	App->renderer->Blit(framerate, 10, 10, NULL);
+	App->renderer->Blit(gravity, 10, 30, NULL);
+	App->renderer->Blit(wind, 10, 50, NULL);
+	App->renderer->Blit(buoyancy, 10, 70, NULL);
+	App->renderer->Blit(move, 10, 90, NULL);
+	App->renderer->Blit(jump, 10, 110, NULL);
+
+
+	if (App->VariableFrame == true) {
+		App->renderer->Blit(r1, 107, 10, NULL);
+	}
+	else {
+		App->renderer->Blit(r2, 107, 10, NULL);
+	}
+
+	if (gravityActive) {
+		App->renderer->Blit(active, 97, 30, NULL);
+	}
+	else {
+		App->renderer->Blit(inactive, 97, 30, NULL);
+	}
+
+	if (windActive) {
+		App->renderer->Blit(active, 97, 50, NULL);
+	}
+	else {
+		App->renderer->Blit(inactive, 97, 50, NULL);
+	}
+
+	if (buoyancyActive) {
+		App->renderer->Blit(active, 97, 70, NULL);
+	}
+	else {
+		App->renderer->Blit(inactive, 97, 70, NULL);
+	}
+
+	
 	
 
 	return UPDATE_CONTINUE;
